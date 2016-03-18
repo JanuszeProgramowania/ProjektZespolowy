@@ -1,30 +1,26 @@
 package ProjektZespolowy.User.RolaOB;
 
+import ProjektZespolowy.BaseOB.BaseOB;
 import ProjektZespolowy.User.UprawnienieOB.UprawnienieOB;
+import ProjektZespolowy.User.UserOB.UserOB;
 
+import java.util.Date;
 import java.util.List;
 
 /**
  * Created by Tomasz Jodko on 2016-03-18.
  */
-public class RolaOB {
-    private long id;
+public class RolaOB extends BaseOB{
     private String nazwa;
     private List<UprawnienieOB> uprawnienia;
+    private List<UserOB> users;
 
-    public RolaOB(long id, String nazwa, List<UprawnienieOB> uprawnienia) {
-        this.id = id;
+
+    public RolaOB(long id, Date dataUtworzenia, Date dataModyfikacji, String nazwa, List<UprawnienieOB> uprawnienia, List<UserOB> users) {
+        super(id, dataUtworzenia, dataModyfikacji);
         this.nazwa = nazwa;
         this.uprawnienia = uprawnienia;
-    }
-
-    public long getId() {
-
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+        this.users = users;
     }
 
     public String getNazwa() {
@@ -41,5 +37,13 @@ public class RolaOB {
 
     public void setUprawnienia(List<UprawnienieOB> uprawnienia) {
         this.uprawnienia = uprawnienia;
+    }
+
+    public List<UserOB> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<UserOB> users) {
+        this.users = users;
     }
 }

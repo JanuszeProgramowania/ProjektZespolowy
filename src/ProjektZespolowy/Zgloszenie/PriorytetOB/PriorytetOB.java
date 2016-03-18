@@ -1,40 +1,27 @@
 package ProjektZespolowy.Zgloszenie.PriorytetOB;
 
+import ProjektZespolowy.BaseOB.BaseOB;
+import ProjektZespolowy.Util.ETypPriorytetu;
+
+import java.util.Date;
+
 /**
  * Created by Piotr Dordzik on 3/18/2016.
  */
-public class PriorytetOB {
+public class PriorytetOB extends BaseOB {
 
-    private int czasReakcji;
-    private long id;
-    private String nazwa;
+    private ETypPriorytetu typ;
 
-    public int getCzasReakcji() {
-        return czasReakcji;
+    public PriorytetOB(long id, Date dataUtworzenia, Date dataModyfikacji, ETypPriorytetu typ) {
+        super(id, dataUtworzenia, dataModyfikacji);
+        this.typ = typ;
     }
 
-    public void setCzasReakcji(int czasReakcji) {
-        this.czasReakcji = czasReakcji;
+    public ETypPriorytetu getTyp() {
+        return typ;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNazwa() {
-        return nazwa;
-    }
-
-    public void setNazwa(String nazwa) {
-        this.nazwa = nazwa;
-    }
-
-    public  PriorytetOB()
-    {
-
+    public void setTyp(ETypPriorytetu typ) {
+        this.typ = typ;
     }
 }

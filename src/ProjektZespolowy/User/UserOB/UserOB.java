@@ -1,5 +1,6 @@
 package ProjektZespolowy.User.UserOB;
 
+import ProjektZespolowy.BaseOB.BaseOB;
 import ProjektZespolowy.Projekt.ProjektOB.ProjektOB;
 import ProjektZespolowy.User.RolaOB.RolaOB;
 import ProjektZespolowy.Util.ETypUzytkownika;
@@ -10,20 +11,24 @@ import java.util.List;
 /**
  * Created by Tomasz Jodko on 2016-03-18.
  */
-public class UserOB {
+public class UserOB extends BaseOB {
     private boolean aktywny;
     private String email;
-    private long id;
     private String nazwa;
     private String passwordMd5;
     private List<ProjektOB> projekty;
     private List<RolaOB> role;
-    private Date techDate;
     private ETypUzytkownika typUzytkownika;
 
-//todo
-    public UserOB(){
-
+    public UserOB(long id, Date dataUtworzenia, Date dataModyfikacji, boolean aktywny, String email, String nazwa, String passwordMd5, List<ProjektOB> projekty, List<RolaOB> role, ETypUzytkownika typUzytkownika) {
+        super(id, dataUtworzenia, dataModyfikacji);
+        this.aktywny = aktywny;
+        this.email = email;
+        this.nazwa = nazwa;
+        this.passwordMd5 = passwordMd5;
+        this.projekty = projekty;
+        this.role = role;
+        this.typUzytkownika = typUzytkownika;
     }
 
     public boolean isAktywny() {
@@ -40,14 +45,6 @@ public class UserOB {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getNazwa() {
@@ -80,14 +77,6 @@ public class UserOB {
 
     public void setRole(List<RolaOB> role) {
         this.role = role;
-    }
-
-    public Date getTechDate() {
-        return techDate;
-    }
-
-    public void setTechDate(Date techDate) {
-        this.techDate = techDate;
     }
 
     public ETypUzytkownika getTypUzytkownika() {

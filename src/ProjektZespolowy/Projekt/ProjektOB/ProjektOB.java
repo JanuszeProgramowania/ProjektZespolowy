@@ -1,42 +1,34 @@
 package ProjektZespolowy.Projekt.ProjektOB;
 
+import ProjektZespolowy.BaseOB.BaseOB;
+import ProjektZespolowy.Projekt.OpisPriorytetowOB.OpisPriorytetowOB;
+import ProjektZespolowy.User.UserOB.UserOB;
+import ProjektZespolowy.Zgloszenie.ZgloszenieOB.ZgloszenieOB;
+
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Tomasz Jodko on 2016-03-18.
 
  */
-public class ProjektOB {
-    private Date dataUtworzenia;
-    private long id;
+public class ProjektOB extends BaseOB {
     private String nazwa;
     private String opis;
     private String wersja;
+    private List<UserOB> users;
+    private List<OpisPriorytetowOB> opisPriorytetow;
+    private List<ZgloszenieOB> zgloszenia;
 
 
-    public ProjektOB(Date dataUtworzenia, long id, String nazwa, String opis, String wersja) {
-        this.dataUtworzenia = dataUtworzenia;
-        this.id = id;
+    public ProjektOB(long id, Date dataUtworzenia, Date dataModyfikacji, String nazwa, String opis, String wersja, List<UserOB> users, List<OpisPriorytetowOB> opisPriorytetow, List<ZgloszenieOB> zgloszenia) {
+        super(id, dataUtworzenia, dataModyfikacji);
         this.nazwa = nazwa;
         this.opis = opis;
         this.wersja = wersja;
-    }
-
-    public Date getDataUtworzenia() {
-
-        return dataUtworzenia;
-    }
-
-    public void setDataUtworzenia(Date dataUtworzenia) {
-        this.dataUtworzenia = dataUtworzenia;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+        this.users = users;
+        this.opisPriorytetow = opisPriorytetow;
+        this.zgloszenia = zgloszenia;
     }
 
     public String getOpis() {
@@ -61,5 +53,29 @@ public class ProjektOB {
 
     public void setWersja(String wersja) {
         this.wersja = wersja;
+    }
+
+    public List<UserOB> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<UserOB> users) {
+        this.users = users;
+    }
+
+    public List<OpisPriorytetowOB> getOpisPriorytetow() {
+        return opisPriorytetow;
+    }
+
+    public void setOpisPriorytetow(List<OpisPriorytetowOB> opisPriorytetow) {
+        this.opisPriorytetow = opisPriorytetow;
+    }
+
+    public List<ZgloszenieOB> getZgloszenia() {
+        return zgloszenia;
+    }
+
+    public void setZgloszenia(List<ZgloszenieOB> zgloszenia) {
+        this.zgloszenia = zgloszenia;
     }
 }

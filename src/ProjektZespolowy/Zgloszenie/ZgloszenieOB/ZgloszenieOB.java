@@ -1,31 +1,42 @@
 package ProjektZespolowy.Zgloszenie.ZgloszenieOB;
 
+import ProjektZespolowy.BaseOB.BaseOB;
 import ProjektZespolowy.Projekt.ProjektOB.ProjektOB;
 import ProjektZespolowy.Util.EStatusZgloszenia;
 import ProjektZespolowy.Util.ETypZgloszenia;
+import ProjektZespolowy.Util.EZgloszenieWewZew;
+import ProjektZespolowy.Zalacznik.ZalacznikOB.ZalacznikOB;
+import ProjektZespolowy.Zgloszenie.HistoriaOB.HistoriaOB;
 import ProjektZespolowy.Zgloszenie.PriorytetOB.PriorytetOB;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Piotr Dordzik on 3/18/2016.
  */
-public class ZgloszenieOB {
+public class ZgloszenieOB extends BaseOB {
 
-    private long id;
     private String opis;
     private PriorytetOB priorytet;
     private ProjektOB projekt;
     private EStatusZgloszenia status;
-    private Date techDate;
     private ETypZgloszenia typZgloszenia;
+    private List<HistoriaOB> historia;
+    private List<ZalacznikOB> zalaczniki;
+    private EZgloszenieWewZew zgloszenieWewZew;
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
+    public ZgloszenieOB(long id, Date dataUtworzenia, Date dataModyfikacji, String opis, PriorytetOB priorytet, ProjektOB projekt, EStatusZgloszenia status, ETypZgloszenia typZgloszenia, List<HistoriaOB> historia, List<ZalacznikOB> zalaczniki, EZgloszenieWewZew zgloszenieWewZew) {
+        super(id, dataUtworzenia, dataModyfikacji);
+        this.opis = opis;
+        this.priorytet = priorytet;
+        this.projekt = projekt;
+        this.status = status;
+        this.typZgloszenia = typZgloszenia;
+        this.historia = historia;
+        this.zalaczniki = zalaczniki;
+        this.zgloszenieWewZew = zgloszenieWewZew;
     }
 
     public String getOpis() {
@@ -44,28 +55,12 @@ public class ZgloszenieOB {
         this.priorytet = priorytet;
     }
 
-    public ProjektOB getProjekt() {
-        return projekt;
-    }
-
-    public void setProjekt(ProjektOB projekt) {
-        this.projekt = projekt;
-    }
-
     public EStatusZgloszenia getStatus() {
         return status;
     }
 
     public void setStatus(EStatusZgloszenia status) {
         this.status = status;
-    }
-
-    public Date getTechDate() {
-        return techDate;
-    }
-
-    public void setTechDate(Date techDate) {
-        this.techDate = techDate;
     }
 
     public ETypZgloszenia getTypZgloszenia() {
@@ -76,9 +71,35 @@ public class ZgloszenieOB {
         this.typZgloszenia = typZgloszenia;
     }
 
-    public ZgloszenieOB()
-    {
-
+    public ProjektOB getProjekt() {
+        return projekt;
     }
 
+    public void setProjekt(ProjektOB projekt) {
+        this.projekt = projekt;
+    }
+
+    public List<HistoriaOB> getHistoria() {
+        return historia;
+    }
+
+    public void setHistoria(List<HistoriaOB> historia) {
+        this.historia = historia;
+    }
+
+    public List<ZalacznikOB> getZalaczniki() {
+        return zalaczniki;
+    }
+
+    public void setZalaczniki(List<ZalacznikOB> zalaczniki) {
+        this.zalaczniki = zalaczniki;
+    }
+
+    public EZgloszenieWewZew getZgloszenieWewZew() {
+        return zgloszenieWewZew;
+    }
+
+    public void setZgloszenieWewZew(EZgloszenieWewZew zgloszenieWewZew) {
+        this.zgloszenieWewZew = zgloszenieWewZew;
+    }
 }

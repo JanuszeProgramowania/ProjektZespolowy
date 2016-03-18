@@ -1,39 +1,28 @@
 package ProjektZespolowy.Zalacznik.ZalacznikOB;
 
+import ProjektZespolowy.BaseOB.BaseOB;
+import ProjektZespolowy.User.UserOB.UserOB;
+import ProjektZespolowy.Zalacznik.BinariaOB.BinariaOB;
+
+import java.util.Date;
+
 /**
  * Created by Piotr Dordzik on 3/18/2016.
  */
-public class ZalacznikOB {
+public class ZalacznikOB extends BaseOB{
 
-    private long id;
-    private long idBinaria;
-    private long idZgloszenia;
+
     private String mimeType;
     private String nazwa;
-    private String nazwaPliku;
+    private BinariaOB binaria;
+    private UserOB user;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public long getIdBinaria() {
-        return idBinaria;
-    }
-
-    public void setIdBinaria(long idBinaria) {
-        this.idBinaria = idBinaria;
-    }
-
-    public long getIdZgloszenia() {
-        return idZgloszenia;
-    }
-
-    public void setIdZgloszenia(long idZgloszenia) {
-        this.idZgloszenia = idZgloszenia;
+    public ZalacznikOB(long id, Date dataUtworzenia, Date dataModyfikacji, String nazwa, String mimeType, BinariaOB binaria, UserOB user) {
+        super(id, dataUtworzenia, dataModyfikacji);
+        this.nazwa = nazwa;
+        this.mimeType = mimeType;
+        this.binaria = binaria;
+        this.user = user;
     }
 
     public String getMimeType() {
@@ -52,16 +41,19 @@ public class ZalacznikOB {
         this.nazwa = nazwa;
     }
 
-    public String getNazwaPliku() {
-        return nazwaPliku;
+    public BinariaOB getBinaria() {
+        return binaria;
     }
 
-    public void setNazwaPliku(String nazwaPliku) {
-        this.nazwaPliku = nazwaPliku;
+    public void setBinaria(BinariaOB binaria) {
+        this.binaria = binaria;
     }
 
-    public ZalacznikOB()
-    {
+    public UserOB getUser() {
+        return user;
+    }
 
+    public void setUser(UserOB user) {
+        this.user = user;
     }
 }
