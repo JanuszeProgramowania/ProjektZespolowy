@@ -1,5 +1,6 @@
 package ProjektZespolowy.Zgloszenie.ZgloszenieOB;
 
+import ProjektZespolowy.Projekt.ProjektOB.ProjektOB;
 import ProjektZespolowy.Util.EStatusZgloszenia;
 import ProjektZespolowy.Util.ETypZgloszenia;
 import ProjektZespolowy.Zgloszenie.PriorytetOB.PriorytetOB;
@@ -14,7 +15,7 @@ public class ZgloszenieOB {
     private long id;
     private String opis;
     private PriorytetOB priorytet;
-    //private ProjektOB projekt;
+    private ProjektOB projekt;
     private EStatusZgloszenia status;
     private Date techDate;
     private ETypZgloszenia typZgloszenia;
@@ -41,6 +42,14 @@ public class ZgloszenieOB {
 
     public void setPriorytet(PriorytetOB priorytet) {
         this.priorytet = priorytet;
+    }
+
+    public ProjektOB getProjekt() {
+        return projekt;
+    }
+
+    public void setProjekt(ProjektOB projekt) {
+        this.projekt = projekt;
     }
 
     public EStatusZgloszenia getStatus() {
