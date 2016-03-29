@@ -1,7 +1,7 @@
-package ProjektZespolowy.Zgloszenie.PriorytetOB;
+package ProjektZespolowy.Zgloszenie.ob;
 
-import ProjektZespolowy.BaseOB.BaseOB;
-import ProjektZespolowy.Util.ETypPriorytetu;
+import ProjektZespolowy.BaseOB;
+import ProjektZespolowy.Util.enums.ETypPriorytetu;
 
 import java.util.Date;
 

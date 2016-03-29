@@ -1,9 +1,8 @@
-package ProjektZespolowy.User.UserOB;
+package ProjektZespolowy.User.ob;
 
-import ProjektZespolowy.BaseOB.BaseOB;
-import ProjektZespolowy.Projekt.ProjektOB.ProjektOB;
-import ProjektZespolowy.User.RolaOB.RolaOB;
-import ProjektZespolowy.Util.ETypUzytkownika;
+import ProjektZespolowy.BaseOB;
+import ProjektZespolowy.Projekt.ob.ProjektOB;
+import ProjektZespolowy.Util.enums.ETypUzytkownika;
 
 import java.util.Date;
 import java.util.List;

@@ -1,8 +1,8 @@
-package ProjektZespolowy.Zalacznik.ZalacznikOB;
+package ProjektZespolowy.Zalacznik.ob;
 
-import ProjektZespolowy.BaseOB.BaseOB;
-import ProjektZespolowy.User.UserOB.UserOB;
-import ProjektZespolowy.Zalacznik.BinariaOB.BinariaOB;
+import ProjektZespolowy.BaseOB;
+import ProjektZespolowy.User.ob.UserOB;
+import ProjektZespolowy.Zalacznik.ob.BinariaOB;
 
 import java.util.Date;
 

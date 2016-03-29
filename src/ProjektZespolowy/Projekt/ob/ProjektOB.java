@@ -1,9 +1,8 @@
-package ProjektZespolowy.Projekt.ProjektOB;
+package ProjektZespolowy.Projekt.ob;
 
-import ProjektZespolowy.BaseOB.BaseOB;
-import ProjektZespolowy.Projekt.OpisPriorytetowOB.OpisPriorytetowOB;
-import ProjektZespolowy.User.UserOB.UserOB;
-import ProjektZespolowy.Zgloszenie.ZgloszenieOB.ZgloszenieOB;
+import ProjektZespolowy.BaseOB;
+import ProjektZespolowy.User.ob.UserOB;
+import ProjektZespolowy.Zgloszenie.ob.ZgloszenieOB;
 
 import java.util.Date;
 import java.util.List;

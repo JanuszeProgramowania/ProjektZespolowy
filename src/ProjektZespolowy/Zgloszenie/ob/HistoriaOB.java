@@ -1,10 +1,9 @@
-package ProjektZespolowy.Zgloszenie.HistoriaOB;
+package ProjektZespolowy.Zgloszenie.ob;
 
-import ProjektZespolowy.BaseOB.BaseOB;
-import ProjektZespolowy.User.UserOB.UserOB;
-import ProjektZespolowy.Util.ETypKomentarza;
-import ProjektZespolowy.Zalacznik.ZalacznikOB.ZalacznikOB;
-import ProjektZespolowy.Zgloszenie.ZgloszenieOB.ZgloszenieOB;
+import ProjektZespolowy.BaseOB;
+import ProjektZespolowy.User.ob.UserOB;
+import ProjektZespolowy.Util.enums.ETypKomentarza;
+import ProjektZespolowy.Zalacznik.ob.ZalacznikOB;
 
 import java.util.Date;
 import java.util.List;

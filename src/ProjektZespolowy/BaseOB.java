@@ -1,4 +1,4 @@
-package ProjektZespolowy.BaseOB;
+package ProjektZespolowy;
 
 import java.util.Date;
 

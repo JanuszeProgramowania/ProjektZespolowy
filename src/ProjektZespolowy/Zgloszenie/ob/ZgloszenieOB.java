@@ -1,13 +1,11 @@
-package ProjektZespolowy.Zgloszenie.ZgloszenieOB;
+package ProjektZespolowy.Zgloszenie.ob;
 
-import ProjektZespolowy.BaseOB.BaseOB;
-import ProjektZespolowy.Projekt.ProjektOB.ProjektOB;
-import ProjektZespolowy.Util.EStatusZgloszenia;
-import ProjektZespolowy.Util.ETypZgloszenia;
-import ProjektZespolowy.Util.EZgloszenieWewZew;
-import ProjektZespolowy.Zalacznik.ZalacznikOB.ZalacznikOB;
-import ProjektZespolowy.Zgloszenie.HistoriaOB.HistoriaOB;
-import ProjektZespolowy.Zgloszenie.PriorytetOB.PriorytetOB;
+import ProjektZespolowy.BaseOB;
+import ProjektZespolowy.Projekt.ob.ProjektOB;
+import ProjektZespolowy.Util.enums.EStatusZgloszenia;
+import ProjektZespolowy.Util.enums.ETypZgloszenia;
+import ProjektZespolowy.Util.enums.EZgloszenieWewZew;
+import ProjektZespolowy.Zalacznik.ob.ZalacznikOB;
 
 import java.util.Date;
 import java.util.List;

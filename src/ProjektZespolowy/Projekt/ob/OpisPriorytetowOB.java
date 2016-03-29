@@ -1,8 +1,8 @@
-package ProjektZespolowy.Projekt.OpisPriorytetowOB;
+package ProjektZespolowy.Projekt.ob;
 
-import ProjektZespolowy.BaseOB.BaseOB;
-import ProjektZespolowy.Util.EJednostkaCzasu;
-import ProjektZespolowy.Util.ETypPriorytetu;
+import ProjektZespolowy.BaseOB;
+import ProjektZespolowy.Util.enums.EJednostkaCzasu;
+import ProjektZespolowy.Util.enums.ETypPriorytetu;
 
 import java.util.Date;
 

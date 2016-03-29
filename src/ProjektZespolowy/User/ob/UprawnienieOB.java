@@ -1,7 +1,7 @@
-package ProjektZespolowy.User.UprawnienieOB;
+package ProjektZespolowy.User.ob;
 
-import ProjektZespolowy.BaseOB.BaseOB;
-import ProjektZespolowy.User.RolaOB.RolaOB;
+import ProjektZespolowy.BaseOB;
+import ProjektZespolowy.User.ob.RolaOB;
 
 import java.util.Date;
 import java.util.List;
