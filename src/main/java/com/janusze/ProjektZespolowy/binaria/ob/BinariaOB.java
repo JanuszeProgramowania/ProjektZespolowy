@@ -1,6 +1,6 @@
-package ProjektZespolowy.Zalacznik.ob;
+package com.janusze.projektzespolowy.binaria.ob;
 
-import ProjektZespolowy.BaseOB;
+import com.janusze.projektzespolowy.BaseOB;
 
 import java.util.Date;
 
