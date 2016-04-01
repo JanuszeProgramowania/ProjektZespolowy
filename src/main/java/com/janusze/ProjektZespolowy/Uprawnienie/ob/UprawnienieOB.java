@@ -1,7 +1,8 @@
 package com.janusze.projektzespolowy.uprawnienie.ob;
 
-import com.janusze.projektzespolowy.BaseOB;
 import com.janusze.projektzespolowy.rola.ob.RolaOB;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
@@ -9,29 +10,13 @@ import java.util.List;
 /**
  * Created by Tomasz Jodko on 2016-03-18.
  */
-public class UprawnienieOB extends BaseOB {
+@Data
+@AllArgsConstructor
+public class UprawnienieOB{
+    private long id;
+    private Date dataUtworzenia;
+    private Date dataModyfikacji;
     private String nazwa;
     private List<RolaOB> role;
 
-    public UprawnienieOB(long id, Date dataUtworzenia, Date dataModyfikacji, String nazwa, List<RolaOB> role) {
-        super(id, dataUtworzenia, dataModyfikacji);
-        this.nazwa = nazwa;
-        this.role = role;
-    }
-
-    public String getNazwa() {
-        return nazwa;
-    }
-
-    public void setNazwa(String nazwa) {
-        this.nazwa = nazwa;
-    }
-
-    public List<RolaOB> getRole() {
-        return role;
-    }
-
-    public void setRole(List<RolaOB> role) {
-        this.role = role;
-    }
 }
