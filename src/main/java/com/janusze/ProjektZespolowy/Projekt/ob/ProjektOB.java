@@ -1,11 +1,13 @@
 package com.janusze.projektzespolowy.projekt.ob;
 
-import com.janusze.projektzespolowy.opispriorytetow.ob.OpisPriorytetowOB;
+
 import com.janusze.projektzespolowy.user.ob.UserOB;
 import com.janusze.projektzespolowy.zgloszenie.ob.ZgloszenieOB;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -14,15 +16,35 @@ import java.util.List;
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "projekty")
+@SequenceGenerator(allocationSize = 1, name = "SEQ", sequenceName = "GEN_PROJEKT_ID")
 public class ProjektOB{
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ")
     private long id;
+    @Column(name = "DATA_UTWORZENIA", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date dataUtworzenia;
+    @Column(name = "DATA_MODYFIKACJI", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date dataModyfikacji;
+    @Column(name = "NAZWA")
     private String nazwa;
+    @Column(name = "OPIS")
     private String opis;
+    @Column(name = "WERSJA")
     private String wersja;
+    @ManyToMany
     private List<UserOB> users;
-    private List<OpisPriorytetowOB> opisPriorytetow;
+    @OneToMany(mappedBy = "projekt")
     private List<ZgloszenieOB> zgloszenia;
 
+    @PrePersist
+    @PreUpdate
+    private void setCurrentDate() {
+        dataModyfikacji = new Date();
+    }
 }
