@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://dozer.sourceforge.net"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+    <configuration>
+        <stop-on-errors>true</stop-on-errors>
+        <date-format>MM/dd/yyyy HH:mm</date-format>
+        <wildcard>true</wildcard>
+    </configuration>
+
+    <mapping>
+        <class-a>com.janusze.projektzespolowy.user.ob.UserOB</class-a>
+        <class-b>com.janusze.projektzespolowy.user.dto.UserDTO</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.janusze.projektzespolowy.binaria.ob.BinariaOB</class-a>
+        <class-b>com.janusze.projektzespolowy.binaria.dto.BinariaDTO</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.janusze.projektzespolowy.historia.ob.HistoriaOB</class-a>
+        <class-b>com.janusze.projektzespolowy.historia.dto.HistoriaDTO</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.janusze.projektzespolowy.priorytet.ob.PriorytetOB</class-a>
+        <class-b>com.janusze.projektzespolowy.priorytet.dto.PriorytetDTO</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.janusze.projektzespolowy.projekt.ob.ProjektOB</class-a>
+        <class-b>com.janusze.projektzespolowy.projekt.dto.ProjektDTO</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.janusze.projektzespolowy.rola.ob.RolaOB</class-a>
+        <class-b>com.janusze.projektzespolowy.rola.dto.RolaDTO</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.janusze.projektzespolowy.uprawnienie.ob.UprawnienieOB</class-a>
+        <class-b>com.janusze.projektzespolowy.uprawnienie.dto.UprawnienieDTO</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.janusze.projektzespolowy.zalacznik.ob.ZalacznikOB</class-a>
+        <class-b>com.janusze.projektzespolowy.zalacznik.dto.ZalacznikDTO</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.janusze.projektzespolowy.zgloszenie.ob.ZgloszenieOB</class-a>
+        <class-b>com.janusze.projektzespolowy.zgloszenie.dto.ZgloszenieDTO</class-b>
+    </mapping>
+
+
+
+</mappings>
