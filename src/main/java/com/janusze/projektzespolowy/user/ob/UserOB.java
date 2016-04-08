@@ -6,6 +6,7 @@ import com.janusze.projektzespolowy.rola.ob.RolaOB;
 import com.janusze.projektzespolowy.util.enums.ETypUzytkownika;
 import com.janusze.projektzespolowy.zgloszenie.ob.ZgloszenieOB;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,13 +21,14 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Builder
 @Table(name = "users")
 @SequenceGenerator(allocationSize = 1, name = "SEQ", sequenceName = "GEN_USER_ID")
 public class UserOB{
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ")
-    private long id;
+    private Long id;
     @Column(name = "DATA_UTWORZENIA", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date dataUtworzenia;
@@ -55,10 +57,15 @@ public class UserOB{
     private List<HistoriaOB> historia;
 
 
-    @PrePersist
+
     @PreUpdate
-    private void setCurrentDate() {
-        // przy kazdym wpisie lub zmianie rekordu bedzie aktualizowana jego data, przydatne pole przy utrzymywaniu systemu
+    private void setModDate() {
         dataModyfikacji = new Date();
+    }
+
+    @PrePersist
+    private void setCreationDate(){
+        dataModyfikacji = new Date();
+        dataUtworzenia = new Date();
     }
 }

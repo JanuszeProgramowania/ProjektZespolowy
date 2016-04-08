@@ -1,14 +1,16 @@
 package com.janusze.projektzespolowy.user.dto;
 
-import com.janusze.projektzespolowy.historia.ob.HistoriaOB;
-import com.janusze.projektzespolowy.projekt.ob.ProjektOB;
-import com.janusze.projektzespolowy.rola.ob.RolaOB;
+import com.janusze.projektzespolowy.historia.dto.HistoriaDTO;
+import com.janusze.projektzespolowy.projekt.dto.ProjektDTO;
+import com.janusze.projektzespolowy.rola.dto.RolaDTO;
 import com.janusze.projektzespolowy.util.enums.ETypUzytkownika;
-import com.janusze.projektzespolowy.zgloszenie.ob.ZgloszenieOB;
+import com.janusze.projektzespolowy.zgloszenie.dto.ZgloszenieDTO;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -17,9 +19,10 @@ import java.util.List;
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @ApiModel
-public class UserDTO {
-    private long id;
+public class UserDTO implements Serializable {
+    private Long id;
     private Date dataUtworzenia;
     private Date dataModyfikacji;
     private boolean aktywny;
@@ -27,10 +30,10 @@ public class UserDTO {
     private String imie;
     private String nazwisko;
     private String passwordMd5;
-    private List<ProjektOB> projekty;
-    private List<RolaOB> role;
+    private List<ProjektDTO> projekty;
+    private List<RolaDTO> role;
     private ETypUzytkownika typUzytkownika;
-    private List<ZgloszenieOB> zgloszenia;
-    private List<HistoriaOB> historia;
+    private List<ZgloszenieDTO> zgloszenia;
+    private List<HistoriaDTO> historia;
 
 }

@@ -3,7 +3,9 @@ package com.janusze.projektzespolowy.binaria.dto;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,10 +13,11 @@ import java.util.Date;
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @ApiModel
-public class BinariaDTO {
-    private long id;
+public class BinariaDTO implements Serializable {
+    private Long id;
     private Date dataUtworzenia;
     private Date dataModyfikacji;
-    private Byte[] bin;
+    private String bin;
 }

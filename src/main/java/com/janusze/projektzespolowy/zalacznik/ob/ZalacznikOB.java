@@ -22,7 +22,7 @@ public class ZalacznikOB{
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ")
-    private long id;
+    private Long id;
     @Column(name = "DATA_UTWORZENIA", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date dataUtworzenia;
@@ -38,10 +38,15 @@ public class ZalacznikOB{
     @ManyToOne
     private HistoriaOB historia;
 
-    @PrePersist
     @PreUpdate
-    private void setCurrentDate() {
+    private void setModDate() {
         dataModyfikacji = new Date();
+    }
+
+    @PrePersist
+    private void setCreationDate(){
+        dataModyfikacji = new Date();
+        dataUtworzenia = new Date();
     }
 
 }
