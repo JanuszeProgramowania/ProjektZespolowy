@@ -1,6 +1,5 @@
 package com.janusze.projektzespolowy.zgloszenie.ob;
 
-import com.janusze.projektzespolowy.historia.ob.HistoriaOB;
 import com.janusze.projektzespolowy.priorytet.ob.PriorytetOB;
 import com.janusze.projektzespolowy.projekt.ob.ProjektOB;
 import com.janusze.projektzespolowy.user.ob.UserOB;
@@ -13,7 +12,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Piotr Dordzik on 3/18/2016.
@@ -44,8 +42,6 @@ public class ZgloszenieOB{
     @Column(name = "STATUS")
     private EStatusZgloszenia status;
     private ETypZgloszenia typZgloszenia;
-    @OneToMany(mappedBy = "zgloszenie")
-    private List<HistoriaOB> historia;
     @Column(name ="ZGLOSZENIE_WEW_ZEW")
     private EZgloszenieWewZew zgloszenieWewZew;
     @ManyToOne

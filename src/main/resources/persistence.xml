@@ -9,8 +9,6 @@
         <class>com.janusze.projektzespolowy.historia.ob.HistoriaOB</class>
         <class>com.janusze.projektzespolowy.priorytet.ob.PriorytetOB</class>
         <class>com.janusze.projektzespolowy.projekt.ob.ProjektOB</class>
-        <class>com.janusze.projektzespolowy.rola.ob.RolaOB</class>
-        <class>com.janusze.projektzespolowy.uprawnienie.ob.UprawnienieOB</class>
         <class>com.janusze.projektzespolowy.zalacznik.ob.ZalacznikOB</class>
         <class>com.janusze.projektzespolowy.zgloszenie.ob.ZgloszenieOB</class>
     </persistence-unit>

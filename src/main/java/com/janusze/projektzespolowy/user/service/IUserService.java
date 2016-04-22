@@ -13,6 +13,8 @@ public interface IUserService {
 
     List<UserDTO> findAllUsers();
 
+    List<UserDTO> findUsersByFullName(String aName, String aLastName);
+
     UserDTO saveUser(UserDTO aUserDTO);
 
     void deleteUser(Long aId);

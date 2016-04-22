@@ -2,7 +2,6 @@ package com.janusze.projektzespolowy.historia.ob;
 
 import com.janusze.projektzespolowy.user.ob.UserOB;
 import com.janusze.projektzespolowy.util.enums.ETypKomentarza;
-import com.janusze.projektzespolowy.zalacznik.ob.ZalacznikOB;
 import com.janusze.projektzespolowy.zgloszenie.ob.ZgloszenieOB;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Piotr Dordzik on 3/18/2016.
@@ -36,8 +34,6 @@ public class HistoriaOB{
     private String opis;
     @Column(name = "TYP")
     private ETypKomentarza typ;
-    @OneToMany(mappedBy = "historia")
-    private List<ZalacznikOB> zalaczniki;
     @ManyToOne
     private ZgloszenieOB zgloszenie;
     @ManyToOne

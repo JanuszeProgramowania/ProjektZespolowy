@@ -2,7 +2,6 @@ package com.janusze.projektzespolowy.historia.dto;
 
 import com.janusze.projektzespolowy.user.dto.UserDTO;
 import com.janusze.projektzespolowy.util.enums.ETypKomentarza;
-import com.janusze.projektzespolowy.zalacznik.dto.ZalacznikDTO;
 import com.janusze.projektzespolowy.zgloszenie.dto.ZgloszenieDTO;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
@@ -11,7 +10,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Tomasz Jodko on 2016-04-06.
@@ -26,7 +24,6 @@ public class HistoriaDTO implements Serializable {
     private Date dataModyfikacji;
     private String opis;
     private ETypKomentarza typ;
-    private List<ZalacznikDTO> zalaczniki;
     private ZgloszenieDTO zgloszenie;
     private UserDTO user;
 }

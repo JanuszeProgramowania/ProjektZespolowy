@@ -2,14 +2,12 @@ package com.janusze.projektzespolowy.priorytet.ob;
 
 import com.janusze.projektzespolowy.util.enums.EJednostkaCzasu;
 import com.janusze.projektzespolowy.util.enums.ETypPriorytetu;
-import com.janusze.projektzespolowy.zgloszenie.ob.ZgloszenieOB;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Piotr Dordzik on 3/18/2016.
@@ -37,8 +35,7 @@ public class PriorytetOB{
     private EJednostkaCzasu jednostka;
     @Column(name = "ILOSC")
     private int ilosc;
-    @OneToMany(mappedBy = "priorytet")
-    private List<ZgloszenieOB> zgloszenia;
+
 
     @PreUpdate
     private void setModDate() {

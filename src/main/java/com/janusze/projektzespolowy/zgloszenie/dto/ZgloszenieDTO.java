@@ -1,6 +1,5 @@
 package com.janusze.projektzespolowy.zgloszenie.dto;
 
-import com.janusze.projektzespolowy.historia.dto.HistoriaDTO;
 import com.janusze.projektzespolowy.priorytet.dto.PriorytetDTO;
 import com.janusze.projektzespolowy.projekt.dto.ProjektDTO;
 import com.janusze.projektzespolowy.user.dto.UserDTO;
@@ -14,7 +13,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Tomasz Jodko on 2016-04-06.
@@ -32,7 +30,6 @@ public class ZgloszenieDTO implements Serializable {
     private ProjektDTO projekt;
     private EStatusZgloszenia status;
     private ETypZgloszenia typZgloszenia;
-    private List<HistoriaDTO> historia;
     private EZgloszenieWewZew zgloszenieWewZew;
     private UserDTO user;
 }

@@ -9,7 +9,6 @@
         <date-format>MM/dd/yyyy HH:mm</date-format>
         <wildcard>true</wildcard>
     </configuration>
-
     <mapping>
         <class-a>com.janusze.projektzespolowy.user.ob.UserOB</class-a>
         <class-b>com.janusze.projektzespolowy.user.dto.UserDTO</class-b>
@@ -29,14 +28,6 @@
     <mapping>
         <class-a>com.janusze.projektzespolowy.projekt.ob.ProjektOB</class-a>
         <class-b>com.janusze.projektzespolowy.projekt.dto.ProjektDTO</class-b>
-    </mapping>
-    <mapping>
-        <class-a>com.janusze.projektzespolowy.rola.ob.RolaOB</class-a>
-        <class-b>com.janusze.projektzespolowy.rola.dto.RolaDTO</class-b>
-    </mapping>
-    <mapping>
-        <class-a>com.janusze.projektzespolowy.uprawnienie.ob.UprawnienieOB</class-a>
-        <class-b>com.janusze.projektzespolowy.uprawnienie.dto.UprawnienieDTO</class-b>
     </mapping>
     <mapping>
         <class-a>com.janusze.projektzespolowy.zalacznik.ob.ZalacznikOB</class-a>

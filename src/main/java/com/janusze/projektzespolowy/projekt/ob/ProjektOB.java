@@ -2,14 +2,13 @@ package com.janusze.projektzespolowy.projekt.ob;
 
 
 import com.janusze.projektzespolowy.user.ob.UserOB;
-import com.janusze.projektzespolowy.zgloszenie.ob.ZgloszenieOB;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Tomasz Jodko on 2016-03-18.
@@ -38,9 +37,7 @@ public class ProjektOB{
     @Column(name = "WERSJA")
     private String wersja;
     @ManyToMany
-    private List<UserOB> users;
-    @OneToMany(mappedBy = "projekt")
-    private List<ZgloszenieOB> zgloszenia;
+    private Set<UserOB> users;
 
     @PreUpdate
     private void setModDate() {

@@ -32,6 +32,11 @@ public class UserController {
         return new ResponseEntity<>(userService.findAllUsers(), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/getByFullNames/{name},{lastName}", method = RequestMethod.GET)
+    public ResponseEntity<List<UserDTO>> findUsersByNames(@PathVariable("name") String aName, @PathVariable("lastName") String aLastName) {
+        return new ResponseEntity<>(userService.findUsersByFullName(aName, aLastName), HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/saveUser", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     @ResponseBody
     public ResponseEntity<UserDTO> saveUser(@RequestBody UserDTO aUserDTO) {
