@@ -33,6 +33,17 @@ public class UserController {
         return null;
     }
 
+    @RequestMapping(value = "/changePassword", method = RequestMethod.PUT)
+    public ResponseEntity<Void> changePassword(@RequestBody String aNewPassword) {
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication instanceof UserAuthentication) {
+            UserDetailsDTO pUserDetailsDTO = ((UserAuthentication) authentication).getDetails();
+            userService.changePassword(pUserDetailsDTO, aNewPassword);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return null;
+    }
+
     @RequestMapping(value = "getById/{id}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<UserDTO> findUserById(@PathVariable("id") Long aId) {

@@ -11,5 +11,13 @@ app.config(['$routeProvider', function ($routeProvider) {
         .when('/home', {
             templateUrl: 'templates/home.html'
         })
+        .when('/users', {
+            templateUrl: 'templates/users.html',
+            controller: 'UserController'
+        })
+        .when('/account', {
+            templateUrl: 'templates/account.html',
+            controller: 'AccountController'
+        })
         .otherwise({redirectTo: '/'});
 }]);

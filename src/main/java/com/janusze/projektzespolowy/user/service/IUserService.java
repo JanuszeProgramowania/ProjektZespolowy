@@ -1,6 +1,7 @@
 package com.janusze.projektzespolowy.user.service;
 
 import com.janusze.projektzespolowy.user.dto.UserDTO;
+import com.janusze.projektzespolowy.user.dto.UserDetailsDTO;
 
 import java.util.List;
 
@@ -18,6 +19,8 @@ public interface IUserService {
     UserDTO saveUser(UserDTO aUserDTO);
 
     UserDTO findUserByEmail(String email);
+
+    void changePassword(UserDetailsDTO aUserDetailsDTO, String aNewPassword);
 
     void deleteUser(Long aId);
 }

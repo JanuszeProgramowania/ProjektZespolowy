@@ -1,6 +1,7 @@
 package com.janusze.projektzespolowy.user.service.impl;
 
 import com.janusze.projektzespolowy.user.dto.UserDTO;
+import com.janusze.projektzespolowy.user.dto.UserDetailsDTO;
 import com.janusze.projektzespolowy.user.ob.UserOB;
 import com.janusze.projektzespolowy.user.repository.IUserRepository;
 import com.janusze.projektzespolowy.user.service.IUserService;
@@ -84,7 +85,14 @@ public class UserServiceImpl implements IUserService{
         return userConverter.mapOBtoDTO(iUserRepository.save(pUserOB));
     }
 
+    @Override
+    public void changePassword(UserDetailsDTO aUserDetailsDTO, String aNewPassword) {
+        UserOB pUserOB = iUserRepository.findOne(aUserDetailsDTO.getId());
+        if (pUserOB != null) {
+            pUserOB.setPassword(new BCryptPasswordEncoder().encode(aNewPassword));
 
+        }
+    }
 
     @Override
     public void deleteUser(Long aId) {

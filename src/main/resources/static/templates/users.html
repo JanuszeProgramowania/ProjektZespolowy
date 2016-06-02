@@ -16,6 +16,11 @@
         <option>ROLE_USER</option>
         <option>ROLE_ADMIN</option>
     </select>
+    <label for="newUserType">Type:</label>
+    <select class="form-control" id="newUserType" ng-model="newUser.typUzytkownika">
+        <option>WEWNETRZNY</option>
+        <option>ZEWNETRZNY</option>
+    </select>
     <button class="btn btn-success" ng-click="saveNewUser()">Save</button>
 </div>
 
@@ -34,6 +39,11 @@
         <option>ROLE_USER</option>
         <option>ROLE_ADMIN</option>
     </select>
+    <label for="selectedUserType">Type:</label>
+    <select class="form-control" id="selectedUserType" ng-model="selectedUser.typUzytkownika">
+        <option>WEWNETRZNY</option>
+        <option>ZEWNETRZNY</option>
+    </select>
     <button class="btn btn-success" ng-click="saveUser()">Save</button>
     <button class="btn btn-danger" ng-click="deleteUser()">Delete</button>
 </div>
@@ -46,6 +56,7 @@
             <th st-sort="lastName">Last Name</th>
             <th st-sort="authority">Authority</th>
             <th st-sort="dataUtworzenia">Created:</th>
+            <th st-sort="dataModyfikacji">Modified:</th>
             <th st-sort="typUzytkownika">Type:</th>
 
         </tr>
@@ -57,6 +68,7 @@
             <td>{{row.lastName}}</td>
             <td>{{row.authority}}</td>
             <td>{{row.dataUtworzenia | date: "dd.MM.yyyy HH:mm:ss"}}</td>
+            <td>{{row.dataModyfikacji | date: "dd.MM.yyyy HH:mm:ss"}}</td>
             <td>{{row.typUzytkownika}}</td>
         </tr>
         </tbody>

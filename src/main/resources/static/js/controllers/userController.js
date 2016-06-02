@@ -4,10 +4,12 @@
 app.controller('UserController', ['$scope', '$rootScope', 'userFactory', '$location', function ($scope, $rootScope, userFactory, $location) {
 
     $scope.newUser = {
-        authority: "ROLE_USER"
+        authority: "ROLE_USER",
+        typUzytkownika: "WEWNETRZNY"
     };
     $scope.saveNewUser = function () {
         $scope.newUser.id = 0;
+        $scope.newUser.aktywny = true;
 
         userFactory.saveUser($scope.newUser, function (resp) {
             console.log(resp);
@@ -23,7 +25,7 @@ app.controller('UserController', ['$scope', '$rootScope', 'userFactory', '$locat
 
     $scope.deleteUser = function () {
         var id = $scope.selectedUser.id;
-        userFactory.deleteAbsence(id);
+        userFactory.deleteUser(id);
         var index = $scope.users.indexOf($scope.selectedUser);
         $scope.users.splice(index, 1);
     };
@@ -51,7 +53,7 @@ app.controller('UserController', ['$scope', '$rootScope', 'userFactory', '$locat
         console.log(resp);
     });
 
-    if (!$rootScope.authenticated && $rootScope.admin === false) {
+    if (!$rootScope.authenticated || $rootScope.admin === false) {
         $location.path('/');    //redirect user to home.
     }
 }]);

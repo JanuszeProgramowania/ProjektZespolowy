@@ -28,6 +28,7 @@ app.controller('AuthCtrl', function ($scope, $rootScope, $http, TokenStorage) {
             password: $scope.password
         }).success(function (result, status, headers) {
             $rootScope.authenticated = true;
+            $rootScope.admin = false;
             TokenStorage.store(headers('X-AUTH-TOKEN'));
 
             // For display purposes only
