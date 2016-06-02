@@ -6,6 +6,7 @@ import com.janusze.projektzespolowy.user.repository.IUserRepository;
 import com.janusze.projektzespolowy.user.service.IUserService;
 import com.janusze.projektzespolowy.util.converters.impl.UserConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -44,6 +45,14 @@ public class UserServiceImpl implements IUserService{
         return pResult;
     }
 
+    @Override
+    public UserDTO findUserByEmail(String email) {
+        UserOB pUserOB = iUserRepository.findByEmail(email);
+        if (pUserOB == null) {
+            return null;
+        }
+        return userConverter.mapOBtoDTO(pUserOB);
+    }
 
     @Override
     public List<UserDTO> findUsersByFullName(String aName, String aLastName) {
@@ -64,11 +73,13 @@ public class UserServiceImpl implements IUserService{
         UserOB pUserOB = aUserDTO.getId() == null ? null : iUserRepository.findOne(aUserDTO.getId());
         // zapis nowego
         if (pUserOB == null) {
-            return userConverter.mapOBtoDTO(iUserRepository.save(userConverter.mapDTOtoOB(aUserDTO)));
+            pUserOB = userConverter.mapDTOtoOB(aUserDTO);
+            pUserOB.setPassword(new BCryptPasswordEncoder().encode(aUserDTO.getPassword()));
+            return userConverter.mapOBtoDTO(iUserRepository.save(pUserOB));
         }
         // edycja istniejacego
-        pUserOB.setImie(aUserDTO.getImie());
-        pUserOB.setNazwisko(aUserDTO.getNazwisko());
+        pUserOB.setName(aUserDTO.getName());
+        pUserOB.setLastName(aUserDTO.getLastName());
 
         return userConverter.mapOBtoDTO(iUserRepository.save(pUserOB));
     }

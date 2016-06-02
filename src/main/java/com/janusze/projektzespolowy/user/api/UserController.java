@@ -1,10 +1,14 @@
 package com.janusze.projektzespolowy.user.api;
 
+import com.janusze.projektzespolowy.auth.UserAuthentication;
 import com.janusze.projektzespolowy.user.dto.UserDTO;
+import com.janusze.projektzespolowy.user.dto.UserDetailsDTO;
 import com.janusze.projektzespolowy.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +23,15 @@ import java.util.List;
 public class UserController {
     @Autowired
     IUserService userService;
+
+    @RequestMapping(value = "/current", method = RequestMethod.GET)
+    public ResponseEntity<UserDetailsDTO> getCurrent() {
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication instanceof UserAuthentication) {
+            return new ResponseEntity<>(((UserAuthentication) authentication).getDetails(), HttpStatus.OK);
+        }
+        return null;
+    }
 
     @RequestMapping(value = "getById/{id}", method = RequestMethod.GET)
     @ResponseBody

@@ -17,5 +17,7 @@ public interface IUserService {
 
     UserDTO saveUser(UserDTO aUserDTO);
 
+    UserDTO findUserByEmail(String email);
+
     void deleteUser(Long aId);
 }

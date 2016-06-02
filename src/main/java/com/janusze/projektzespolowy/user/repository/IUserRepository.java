@@ -13,6 +13,10 @@ import java.util.List;
 @Repository
 public interface IUserRepository extends JpaRepository<UserOB, Long> {
 
-    @Query("SELECT u FROM UserOB u WHERE u.imie = ?1 AND u.nazwisko = ?2")
+    @Query("SELECT u FROM UserOB u WHERE u.name = ?1 AND u.lastName = ?2")
     List<UserOB> findByFullName(String aName, String aLastName);
+
+    @Query("SELECT u FROM UserOB u WHERE u.email = ?1")
+    UserOB findByEmail(String email);
+
 }

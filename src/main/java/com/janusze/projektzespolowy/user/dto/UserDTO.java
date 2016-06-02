@@ -1,6 +1,7 @@
 package com.janusze.projektzespolowy.user.dto;
 
 import com.janusze.projektzespolowy.util.enums.ETypUzytkownika;
+import com.janusze.projektzespolowy.util.enums.EUserAuthority;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,9 +23,10 @@ public class UserDTO implements Serializable {
     private Date dataModyfikacji;
     private boolean aktywny;
     private String email;
-    private String imie;
-    private String nazwisko;
+    private String name;
+    private String lastName;
     private String password;
     private ETypUzytkownika typUzytkownika;
+    private EUserAuthority authority;
 
 }

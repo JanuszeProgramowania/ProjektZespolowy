@@ -1,6 +1,7 @@
 package com.janusze.projektzespolowy.user.ob;
 
 import com.janusze.projektzespolowy.util.enums.ETypUzytkownika;
+import com.janusze.projektzespolowy.util.enums.EUserAuthority;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,13 +36,15 @@ public class UserOB{
     @Column(name = "EMAIL")
     private String email;
     @Column(name = "IMIE")
-    private String imie;
+    private String name;
     @Column(name = "NAZWISKO")
-    private String nazwisko;
+    private String lastName;
     @Column(name = "PASSWORD")
     private String password;
     @Column(name = "TYP_UZYTKOWNIKA")
     private ETypUzytkownika typUzytkownika;
+    @Column(name = "AUTHORITY")
+    private EUserAuthority authority;
 
 
 
