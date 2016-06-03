@@ -22,6 +22,7 @@
 
     <link href="bower_components/bootstrap-css-only/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -85,7 +86,7 @@
     <!-- Page Content -->
     <div ng-view></div>
     <!-- /#page-content-wrapper -->
-    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+    <a href="#menu-toggle" class="btn-menu" id="menu-toggle"><span>HIDE</span></a>
 </div>
 <!-- /#wrapper -->
 <!-- Menu Toggle Script -->
@@ -93,6 +94,12 @@
     $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
+        if($(this).text()=="HIDE"){
+            $(this).text("SHOW");
+        }
+        else{
+            $(this).text("HIDE");
+        }
     });
 </script>
 </body>
