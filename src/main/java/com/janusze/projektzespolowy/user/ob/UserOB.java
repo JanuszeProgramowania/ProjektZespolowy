@@ -1,5 +1,6 @@
 package com.janusze.projektzespolowy.user.ob;
 
+import com.janusze.projektzespolowy.company.ob.CompanyOB;
 import com.janusze.projektzespolowy.util.enums.ETypUzytkownika;
 import com.janusze.projektzespolowy.util.enums.EUserAuthority;
 import lombok.AllArgsConstructor;
@@ -45,6 +46,8 @@ public class UserOB{
     private ETypUzytkownika typUzytkownika;
     @Column(name = "AUTHORITY")
     private EUserAuthority authority;
+    @ManyToOne
+    private CompanyOB company;
 
 
 

@@ -36,8 +36,11 @@
     <script src="js/controllers/authCtrl.js"></script>
     <script src="js/controllers/userController.js"></script>
     <script src="js/controllers/accountController.js"></script>
+    <script src="js/controllers/companyController.js"></script>
+    <script src="js/controllers/companyUsersController.js"></script>
     <script src="js/services/tokenStorage.js"></script>
     <script src="js/services/userService.js"></script>
+    <script src="js/services/companyService.js"></script>
 
 
     <script src="bootstrap-validator/dist/validator.js"></script>
@@ -63,8 +66,14 @@
                 <li>
                     <a href="/#/account">Account</a>
                 </li>
-                <li ng-show="admin">
+                <li ng-show="adminWew">
                     <a href="/#/users">Users</a>
+                </li>
+                <li ng-show="adminZew">
+                    <a href="/#/companyUsers">{{token.company.name}} Users</a>
+                </li>
+                <li ng-show="adminWew">
+                    <a href="/#/companies">Companies</a>
                 </li>
             </div>
             <form role="form" ng-hide="authenticated">

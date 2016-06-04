@@ -56,6 +56,11 @@ public class UserController {
         return new ResponseEntity<>(userService.findAllUsers(), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "getByCompanyId/{companyId}", method = RequestMethod.GET)
+    public ResponseEntity<List<UserDTO>> findUsersByCompanyId(@PathVariable("companyId") Long aCompanyId) {
+        return new ResponseEntity<>(userService.findUsersByCompanyId(aCompanyId), HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/getByFullNames/{name},{lastName}", method = RequestMethod.GET)
     public ResponseEntity<List<UserDTO>> findUsersByNames(@PathVariable("name") String aName, @PathVariable("lastName") String aLastName) {
         return new ResponseEntity<>(userService.findUsersByFullName(aName, aLastName), HttpStatus.OK);

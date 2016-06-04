@@ -30,6 +30,17 @@ app.factory('userFactory', ['$http', function ($http) {
         });
     };
 
+    userFactory.getUsersByCompanyId = function (id, callback) {
+        return $http.get(urlBase + '/getByCompanyId/' + id).then(function (response) {
+            if (response.data.error) {
+                return null;
+            } else {
+                userFactory.returnedData = response.data;
+                callback(userFactory.returnedData);
+            }
+        });
+    };
+
     userFactory.saveUser = function (wrapper, callback) {
         return $http.post(urlBase + '/saveUser', wrapper).then(function (response) {
             if (response.data.error) {

@@ -1,10 +1,12 @@
 package com.janusze.projektzespolowy.user.service.impl;
 
+import com.janusze.projektzespolowy.company.service.ICompanyService;
 import com.janusze.projektzespolowy.user.dto.UserDTO;
 import com.janusze.projektzespolowy.user.dto.UserDetailsDTO;
 import com.janusze.projektzespolowy.user.ob.UserOB;
 import com.janusze.projektzespolowy.user.repository.IUserRepository;
 import com.janusze.projektzespolowy.user.service.IUserService;
+import com.janusze.projektzespolowy.util.converters.impl.CompanyConverter;
 import com.janusze.projektzespolowy.util.converters.impl.UserConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -24,6 +26,10 @@ public class UserServiceImpl implements IUserService{
     IUserRepository iUserRepository;
     @Autowired
     UserConverter userConverter;
+    @Autowired
+    ICompanyService companyService;
+    @Autowired
+    CompanyConverter companyConverter;
 
 
 
@@ -34,6 +40,16 @@ public class UserServiceImpl implements IUserService{
             return null;
         }
         return userConverter.mapOBtoDTO(pUserOB);
+    }
+
+    @Override
+    public List<UserDTO> findUsersByCompanyId(Long aCompanyId) {
+        List<UserDTO> pResult = new ArrayList<>();
+        List<UserOB> pUserList = iUserRepository.findByCompanyId(aCompanyId);
+        for (UserOB user : pUserList) {
+            pResult.add(userConverter.mapOBtoDTO(user));
+        }
+        return pResult;
     }
 
     @Override
@@ -76,11 +92,18 @@ public class UserServiceImpl implements IUserService{
         if (pUserOB == null) {
             pUserOB = userConverter.mapDTOtoOB(aUserDTO);
             pUserOB.setPassword(new BCryptPasswordEncoder().encode(aUserDTO.getPassword()));
+            pUserOB.setCompany(companyConverter.mapDTOtoOB(companyService.findCompanyById(aUserDTO.getCompany().getId())));
             return userConverter.mapOBtoDTO(iUserRepository.save(pUserOB));
         }
         // edycja istniejacego
         pUserOB.setName(aUserDTO.getName());
         pUserOB.setLastName(aUserDTO.getLastName());
+        pUserOB.setCompany(companyConverter.mapDTOtoOB(companyService.findCompanyById(aUserDTO.getCompany().getId())));
+        pUserOB.setAuthority(aUserDTO.getAuthority());
+        pUserOB.setAktywny(aUserDTO.isAktywny());
+        pUserOB.setEmail(aUserDTO.getEmail());
+        pUserOB.setTypUzytkownika(aUserDTO.getTypUzytkownika());
+
 
         return userConverter.mapOBtoDTO(iUserRepository.save(pUserOB));
     }

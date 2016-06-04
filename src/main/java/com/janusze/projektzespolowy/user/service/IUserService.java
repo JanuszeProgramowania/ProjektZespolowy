@@ -20,6 +20,8 @@ public interface IUserService {
 
     UserDTO findUserByEmail(String email);
 
+    List<UserDTO> findUsersByCompanyId(Long aId);
+
     void changePassword(UserDetailsDTO aUserDetailsDTO, String aNewPassword);
 
     void deleteUser(Long aId);

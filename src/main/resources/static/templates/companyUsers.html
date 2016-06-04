@@ -11,20 +11,6 @@
     <label for="newUserPassword">Password:</label>
     <input type="password" class="form-control" id="newUserPassword" placeholder="Wprowadź hasło"
            ng-model="newUser.password">
-    <label for="newUserAuthority">Authority:</label>
-    <select class="form-control" id="newUserAuthority" ng-model="newUser.authority">
-        <option>ROLE_USER</option>
-        <option>ROLE_ADMIN</option>
-    </select>
-    <label for="newUserCompany"> Company: </label>
-    <select class="form-control" id="newUserCompany" ng-model="newUser.company">
-        <option ng-repeat="company in companies" value="{{company}}">{{company.name}}</option>
-    </select>
-    <label for="newUserType">Type:</label>
-    <select class="form-control" id="newUserType" ng-model="newUser.typUzytkownika">
-        <option>WEWNETRZNY</option>
-        <option>ZEWNETRZNY</option>
-    </select>
     <button class="btn btn-success" ng-click="saveNewUser()">Save</button>
 </div>
 
@@ -38,21 +24,6 @@
     <label for="selectedUserLastName">Last name:</label>
     <input type="text" class="form-control" id="selectedUserLastName" placeholder="Wprowadź nazwisko"
            ng-model="selectedUser.lastName">
-    <label for="selectedUserAuthority">Authority:</label>
-    <select class="form-control" id="selectedUserAuthority" ng-model="selectedUser.authority">
-        <option>ROLE_USER</option>
-        <option>ROLE_ADMIN</option>
-    </select>
-    <label for="selectedUserCompany"> Company: </label>
-    <select class="form-control" id="selectedUserCompany" ng-model="selectedUser.company">
-        <option ng-repeat="company in companies" value="{{company}}">{{company.name}}</option>
-    </select>
-    <label for="selectedUserType">Type:</label>
-    <select class="form-control" id="selectedUserType" ng-model="selectedUser.typUzytkownika">
-        <option>WEWNETRZNY</option>
-        <option>ZEWNETRZNY</option>
-    </select>
-
     <button class="btn btn-success" ng-click="saveUser()">Save</button>
     <button class="btn btn-danger" ng-click="deleteUser()">Delete</button>
 </div>
@@ -63,12 +34,8 @@
             <th st-sort="email">Email</th>
             <th st-sort="name">Name</th>
             <th st-sort="lastName">Last Name</th>
-            <th st-sort="authority">Authority</th>
             <th st-sort="dataUtworzenia">Created:</th>
             <th st-sort="dataModyfikacji">Modified:</th>
-            <th st-sort="typUzytkownika">Type:</th>
-            <th st-sort="company.name">Company:</th>
-
         </tr>
         </thead>
         <tbody>
@@ -76,11 +43,8 @@
             <td>{{row.email}}</td>
             <td>{{row.name}}</td>
             <td>{{row.lastName}}</td>
-            <td>{{row.authority}}</td>
             <td>{{row.dataUtworzenia | date: "dd.MM.yyyy HH:mm:ss"}}</td>
             <td>{{row.dataModyfikacji | date: "dd.MM.yyyy HH:mm:ss"}}</td>
-            <td>{{row.typUzytkownika}}</td>
-            <td>{{row.company.name}}</td>
         </tr>
         </tbody>
     </table>

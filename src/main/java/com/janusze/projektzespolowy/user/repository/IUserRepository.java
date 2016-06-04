@@ -19,4 +19,7 @@ public interface IUserRepository extends JpaRepository<UserOB, Long> {
     @Query("SELECT u FROM UserOB u WHERE u.email = ?1")
     UserOB findByEmail(String email);
 
+    @Query("SELECT  u FROM UserOB u WHERE  u.company.id = ?1")
+    List<UserOB> findByCompanyId(Long aId);
+
 }

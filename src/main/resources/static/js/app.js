@@ -19,5 +19,13 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'templates/account.html',
             controller: 'AccountController'
         })
+        .when('/companies', {
+            templateUrl: 'templates/companies.html',
+            controller: 'CompanyController'
+        })
+        .when('/companyUsers', {
+            templateUrl: 'templates/companyUsers.html',
+            controller: 'CompanyUsersController'
+        })
         .otherwise({redirectTo: '/'});
 }]);

@@ -2,6 +2,7 @@ package com.janusze.projektzespolowy.user.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.janusze.projektzespolowy.company.dto.CompanyDTO;
 import com.janusze.projektzespolowy.util.enums.ETypUzytkownika;
 import com.janusze.projektzespolowy.util.enums.EUserAuthority;
 import io.swagger.annotations.ApiModel;
@@ -38,8 +39,9 @@ public class UserDetailsDTO implements UserDetails,Serializable {
     private long expires;
     private ETypUzytkownika typUzytkownika;
     private EUserAuthority authority;
+    private CompanyDTO company;
 
-    public UserDetailsDTO(Long id, String name, String lastName, String email, EUserAuthority authority, boolean aktywny, Date dataUtworzenia, ETypUzytkownika typUzytkownika) {
+    public UserDetailsDTO(Long id, String name, String lastName, String email, EUserAuthority authority, boolean aktywny, Date dataUtworzenia, ETypUzytkownika typUzytkownika,CompanyDTO company) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -48,6 +50,7 @@ public class UserDetailsDTO implements UserDetails,Serializable {
         this.aktywny = aktywny;
         this.dataUtworzenia = dataUtworzenia;
         this.typUzytkownika = typUzytkownika;
+        this.company = company;
     }
 
 

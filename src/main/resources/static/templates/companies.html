@@ -1,0 +1,56 @@
+<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#newCompanyForm">New Company</button>
+<div class="collapse" id="newCompanyForm">
+    <label for="newCompanyName">Name:</label>
+    <input type="text" class="form-control" id="newCompanyName" placeholder="Wprowadź nazwę"
+           ng-model="newCompany.name">
+    <label for="newCompanyAddress">Address:</label>
+    <input type="text" class="form-control" id="newCompanyAddress" placeholder="Wprowadź adres:" ng-model="newCompany.address">
+    <label for="newCompanyCity">City:</label>
+    <input type="text" class="form-control" id="newCompanyCity" placeholder="Wprowadź miasto"
+           ng-model="newCompany.city">
+    <label for="newCompanyPhone">Phone:</label>
+    <input type="text" class="form-control" id="newCompanyPhone" placeholder="Wprowadź telefon"
+           ng-model="newCompany.phone">
+    <button class="btn btn-success" ng-click="saveNewCompany()">Save</button>
+</div>
+
+<div class="collapse" id="selectedCompanyForm">
+    <label for="selectedCompanyName">Name:</label>
+    <input type="text" class="form-control" id="selectedCompanyName" placeholder="Wprowadź nazwę"
+           ng-model="selectedCompany.name">
+    <label for="selectedCompanyAddress">Address:</label>
+    <input type="text" class="form-control" id="selectedCompanyAddress" placeholder="Wprowadź adres:" ng-model="selectedCompany.address">
+    <label for="selectedCompanyCity">City:</label>
+    <input type="text" class="form-control" id="selectedCompanyCity" placeholder="Wprowadź miasto"
+           ng-model="selectedCompany.city">
+    <label for="selectedCompanyPhone">Phone:</label>
+    <input type="text" class="form-control" id="selectedCompanyPhone" placeholder="Wprowadź telefon"
+           ng-model="selectedCompany.phone">
+    <button class="btn btn-success" ng-click="saveCompany()">Save</button>
+    <button class="btn btn-danger" ng-click="deleteCompany()">Delete</button>
+</div>
+
+<div>
+    <table st-table="displayedCollection" st-safe-src="companies" class="table table-striped">
+        <thead>
+        <tr>
+            <th st-sort="name">Name</th>
+            <th st-sort="address">Address:</th>
+            <th st-sort="city">City:</th>
+            <th st-sort="phone">City:</th>
+            <th st-sort="dataUtworzenia">Created:</th>
+            <th st-sort="dataModyfikacji">Modified:</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr st-select-row="row" ng-repeat="row in displayedCollection">
+            <td>{{row.name}}</td>
+            <td>{{row.address}}</td>
+            <td>{{row.city}}</td>
+            <td>{{row.phone}}</td>
+            <td>{{row.dataUtworzenia | date: "dd.MM.yyyy HH:mm:ss"}}</td>
+            <td>{{row.dataModyfikacji | date: "dd.MM.yyyy HH:mm:ss"}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

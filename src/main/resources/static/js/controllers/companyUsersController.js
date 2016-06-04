@@ -1,11 +1,12 @@
 /**
- * Created by Tomasz Jodko on 2016-06-02.
+ * Created by Tomasz Jodko on 2016-06-04.
  */
-app.controller('UserController', ['$scope', '$rootScope','companyFactory', 'userFactory', '$location', function ($scope, $rootScope,companyFactory, userFactory, $location) {
+app.controller('CompanyUsersController', ['$scope', '$rootScope', 'userFactory', '$location', function ($scope, $rootScope, userFactory, $location) {
 
     $scope.newUser = {
         authority: "ROLE_USER",
-        typUzytkownika: "WEWNETRZNY"
+        typUzytkownika: "ZEWNETRZNY",
+        company: $rootScope.token.company
     };
     $scope.saveNewUser = function () {
         $scope.newUser.id = 0;
@@ -48,16 +49,12 @@ app.controller('UserController', ['$scope', '$rootScope','companyFactory', 'user
         }
     }, true);
 
-    userFactory.getUsers(function (resp) {
+    userFactory.getUsersByCompanyId($rootScope.token.company.id,function (resp) {
         $scope.users = resp;
         console.log(resp);
     });
-    companyFactory.getCompanies(function (resp) {
-        $scope.companies = resp;
-        console.log(resp);
-    });
 
-    if (!$rootScope.authenticated || $rootScope.adminWew === false) {
+    if (!$rootScope.authenticated || $rootScope.adminZew === false) {
         $location.path('/');    //redirect user to home.
     }
 }]);
