@@ -1,6 +1,8 @@
 package com.janusze.projektzespolowy.user.service.impl;
 
 import com.janusze.projektzespolowy.company.service.ICompanyService;
+import com.janusze.projektzespolowy.projekt.dto.ProjektDTO;
+import com.janusze.projektzespolowy.projekt.service.IProjektService;
 import com.janusze.projektzespolowy.user.dto.UserDTO;
 import com.janusze.projektzespolowy.user.dto.UserDetailsDTO;
 import com.janusze.projektzespolowy.user.ob.UserOB;
@@ -8,6 +10,7 @@ import com.janusze.projektzespolowy.user.repository.IUserRepository;
 import com.janusze.projektzespolowy.user.service.IUserService;
 import com.janusze.projektzespolowy.util.converters.impl.CompanyConverter;
 import com.janusze.projektzespolowy.util.converters.impl.UserConverter;
+import com.janusze.projektzespolowy.util.enums.ETypUzytkownika;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -28,6 +31,8 @@ public class UserServiceImpl implements IUserService{
     UserConverter userConverter;
     @Autowired
     ICompanyService companyService;
+    @Autowired
+    IProjektService projektService;
     @Autowired
     CompanyConverter companyConverter;
 
@@ -106,6 +111,41 @@ public class UserServiceImpl implements IUserService{
 
 
         return userConverter.mapOBtoDTO(iUserRepository.save(pUserOB));
+    }
+
+    @Override
+    public List<UserDTO> findUsersInProjekt(Long aProjektId){
+        ProjektDTO pProjektDTO = projektService.findProjektById(aProjektId);
+        if(pProjektDTO != null){
+            List<UserDTO> pProjektUsers = new ArrayList<>();
+            pProjektUsers.addAll(pProjektDTO.getUsers());
+            return pProjektUsers;
+        }
+        return null;
+    }
+
+    public List<UserDTO> findUsersByUserType(ETypUzytkownika aType){
+        List<UserDTO> pResult = new ArrayList<>();
+        List<UserOB> pUserList = iUserRepository.findByUserType(aType);
+        for (UserOB user : pUserList) {
+            pResult.add(userConverter.mapOBtoDTO(user));
+        }
+        return pResult;
+    }
+
+
+    @Override
+    public List<UserDTO> findUsersNotInProjekt(Long aProjektId){
+        ProjektDTO pProjektDTO = projektService.findProjektById(aProjektId);
+        if(pProjektDTO != null){
+            List<UserDTO> pProjektUsers = new ArrayList<>();
+            pProjektUsers.addAll(pProjektDTO.getUsers());
+            List<UserDTO> pWewUsers = findUsersByUserType(ETypUzytkownika.WEWNETRZNY);
+            pWewUsers.removeAll(pProjektUsers);
+
+            return pWewUsers;
+        }
+        return null;
     }
 
     @Override

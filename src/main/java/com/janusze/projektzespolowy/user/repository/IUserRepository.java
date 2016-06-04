@@ -1,6 +1,7 @@
 package com.janusze.projektzespolowy.user.repository;
 
 import com.janusze.projektzespolowy.user.ob.UserOB;
+import com.janusze.projektzespolowy.util.enums.ETypUzytkownika;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -21,5 +22,8 @@ public interface IUserRepository extends JpaRepository<UserOB, Long> {
 
     @Query("SELECT  u FROM UserOB u WHERE  u.company.id = ?1")
     List<UserOB> findByCompanyId(Long aId);
+
+    @Query("SELECT u FROM UserOB u WHERE u.typUzytkownika =?1")
+    List<UserOB> findByUserType(ETypUzytkownika aType);
 
 }

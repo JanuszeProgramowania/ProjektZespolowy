@@ -1,0 +1,49 @@
+<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#newProjectForm">New Project</button>
+<div class="collapse" id="newProjectForm">
+    <label for="newProjectName">Name:</label>
+    <input type="text" class="form-control" id="newProjectName" placeholder="Wprowadź nazwę"
+           ng-model="newProject.nazwa">
+    <label for="newProjectDescription">Description:</label>
+    <input type="text" class="form-control" id="newProjectDescription" placeholder="Wprowadź opis"
+           ng-model="newProject.opis">
+    <label for="newProjectVersion">Version:</label>
+    <input type="text" class="form-control" id="newProjectVersion" placeholder="Wprowadź wersę" ng-model="newProject.wersja">
+
+    <button class="btn btn-success" ng-click="saveNewProject()">Save</button>
+</div>
+
+<div class="collapse" id="selectedProjectForm">
+    <label for="selectedProjectName">Name:</label>
+    <input type="text" class="form-control" id="selectedProjectName" placeholder="Wprowadź nazwę"
+           ng-model="selectedProject.nazwa">
+    <label for="selectedProjectDescription">Description:</label>
+    <input type="text" class="form-control" id="selectedProjectDescription" placeholder="Wprowadź opis"
+           ng-model="selectedProject.opis">
+    <label for="selectedProjectVersion">Version:</label>
+    <input type="text" class="form-control" id="selectedProjectVersion" placeholder="Wprowadź wersę" ng-model="selectedProject.wersja">
+
+    <button class="btn btn-success" ng-click="saveProject()">Save</button>
+    <button class="btn btn-danger" ng-click="deleteProject()">Delete</button>
+</div>
+<div>
+    <table st-table="displayedCollection" st-safe-src="projects" class="table table-striped">
+        <thead>
+        <tr>
+            <th st-sort="nazwa">Name</th>
+            <th st-sort="opis">Description</th>
+            <th st-sort="wersja">Version</th>
+            <th st-sort="dataUtworzenia">Created:</th>
+            <th st-sort="dataModyfikacji">Modified:</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr st-select-row="row" ng-repeat="row in displayedCollection">
+            <td>{{row.nazwa}}</td>
+            <td>{{row.opis}}</td>
+            <td>{{row.wersja}}</td>
+            <td>{{row.dataUtworzenia | date: "dd.MM.yyyy HH:mm:ss"}}</td>
+            <td>{{row.dataModyfikacji | date: "dd.MM.yyyy HH:mm:ss"}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
