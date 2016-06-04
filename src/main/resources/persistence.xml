@@ -11,5 +11,6 @@
         <class>com.janusze.projektzespolowy.projekt.ob.ProjektOB</class>
         <class>com.janusze.projektzespolowy.zalacznik.ob.ZalacznikOB</class>
         <class>com.janusze.projektzespolowy.zgloszenie.ob.ZgloszenieOB</class>
+        <class>com.janusze.projektzespolowy.company.ob.CompanyOB</class>
     </persistence-unit>
 </persistence>
