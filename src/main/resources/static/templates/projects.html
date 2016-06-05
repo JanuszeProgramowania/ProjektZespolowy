@@ -24,6 +24,18 @@
 
     <button class="btn btn-success" ng-click="saveProject()">Save</button>
     <button class="btn btn-danger" ng-click="deleteProject()">Delete</button>
+    <button class="btn btn-default" data-toggle="collapse" data-target="#manageUsers">Manage Users</button>
+
+    <div class="collapse" id="manageUsers">
+        <div class='containerDragula' dragula='"bag"' dragula-model='usersInProject'>
+            <div ng-repeat='user in usersInProject' ng-bind='user.email'></div>
+        </div>
+        <div class='containerDragula' dragula='"bag"' dragula-model='usersNotInProject'>
+            <div ng-repeat='user in usersNotInProject' ng-bind='user.email'></div>
+        </div>
+        <button class="btn btn-success" ng-click="setUsers()">Set Users</button>
+    </div>
+
 </div>
 <div>
     <table st-table="displayedCollection" st-safe-src="projects" class="table table-striped">

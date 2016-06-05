@@ -2,6 +2,7 @@ package com.janusze.projektzespolowy.projekt.service;
 
 import com.janusze.projektzespolowy.projekt.dto.ProjektDTO;
 import com.janusze.projektzespolowy.util.wrappers.ProjektAndUserDTO;
+import com.janusze.projektzespolowy.util.wrappers.ProjektAndUsersDTO;
 
 import java.util.List;
 
@@ -18,7 +19,11 @@ public interface IProjektService {
 
     ProjektDTO addUserToProjekt(ProjektAndUserDTO aWrapper);
 
+    ProjektDTO removeUserFromProjekt(ProjektAndUserDTO aWrapper);
+
     List<ProjektDTO> findByUserId(Long aUserId);
+
+    void setUsers(ProjektAndUsersDTO aWrapper);
 
     void deleteProjekt(Long aId);
 

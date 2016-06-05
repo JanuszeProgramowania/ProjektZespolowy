@@ -3,6 +3,7 @@ package com.janusze.projektzespolowy.projekt.api;
 import com.janusze.projektzespolowy.projekt.dto.ProjektDTO;
 import com.janusze.projektzespolowy.projekt.service.IProjektService;
 import com.janusze.projektzespolowy.util.wrappers.ProjektAndUserDTO;
+import com.janusze.projektzespolowy.util.wrappers.ProjektAndUsersDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,10 +45,25 @@ public class ProjektController {
         return new ResponseEntity<>(projektService.saveProjekt(aProjektDTO), HttpStatus.OK);
     }
 
+
+
     @RequestMapping(value = "/addUser", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
     @ResponseBody
     public ResponseEntity<ProjektDTO> addUserToProjekt(@RequestBody ProjektAndUserDTO aWrapper) {
         return new ResponseEntity<>(projektService.addUserToProjekt(aWrapper), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/setUsers", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
+    @ResponseBody
+    public ResponseEntity<Void> setUsersInProjekt(@RequestBody ProjektAndUsersDTO aWrapper) {
+        projektService.setUsers(aWrapper);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/removeUser", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
+    @ResponseBody
+    public ResponseEntity<ProjektDTO> removeUserFromProjekt(@RequestBody ProjektAndUserDTO aWrapper) {
+        return new ResponseEntity<>(projektService.removeUserFromProjekt(aWrapper), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/deleteById/{id}", method = RequestMethod.PUT)

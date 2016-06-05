@@ -16,6 +16,29 @@
     transform: rotate(90deg);
 
 }
+.containerDragula:nth-child(2n+1) {
+    background-color: rgba(61, 255, 0, 0.5);
+}
+.containerDragula {
+    display: table-cell;
+    background-color: rgba(255, 81, 0, 0.5);
+    width: 50%;
+}
+
+.containerDragula div {
+    cursor: move;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+.containerDragula div, .gu-mirror {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: opacity 0.4s ease-in-out;
+}
+
+
 .btn-menu:link{
     text-decoration: none;
 }

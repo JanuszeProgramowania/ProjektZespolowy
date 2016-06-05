@@ -1,7 +1,7 @@
 /**
  * Created by Tomasz Jodko on 2016-06-01.
  */
-var app = angular.module('app', ['ngRoute', 'smart-table', 'ui.bootstrap']);
+var app = angular.module('app', [ angularDragula(angular) ,'ngRoute', 'smart-table', 'ui.bootstrap']);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
