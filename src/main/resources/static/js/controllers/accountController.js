@@ -7,9 +7,12 @@ app.controller('AccountController', ['$scope', '$http', '$rootScope', '$location
 
     $scope.changePassword = function () {
         $http.put('projektzespolowy/users/changePassword/', $scope.newPassword).success(function () {
-            $scope.cpSuccess = true;
-            $('#newPassword').text(null);
-            $('#confPassword').text(null);
+            $('#newPassword').val('');
+            $('#confPassword').val('');
+            $("#success-alert").show();
+            $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+                $("#success-alert").hide();
+            });
         });
 
     };

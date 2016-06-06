@@ -26,6 +26,9 @@
         <option>ZEWNETRZNY</option>
     </select>
     <button class="btn btn-success" ng-click="saveNewUser()">Save</button>
+    <div class="alert alert-success" id="success-alert">
+        <strong>Success!</strong> Saved user.
+    </div>
 </div>
 
 <div class="collapse" id="selectedUserForm">
@@ -85,3 +88,6 @@
         </tbody>
     </table>
 </div>
+<script>
+$("#success-alert").hide();
+</script>

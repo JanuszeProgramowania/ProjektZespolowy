@@ -14,6 +14,15 @@ app.controller('UserController', ['$scope', '$rootScope','companyFactory', 'user
         userFactory.saveUser($scope.newUser, function (resp) {
             console.log(resp);
             $scope.users.push(resp);
+
+            $('#newUserEmail').val('');
+            $('#newUserName').val('');
+            $('#newUserLastName').val('');
+            $('#newUserPassword').val('');
+            $("#success-alert").show();
+            $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+                $("#success-alert").hide();
+            });
         });
     };
 

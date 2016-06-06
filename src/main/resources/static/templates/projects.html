@@ -28,10 +28,10 @@
 
     <div class="collapse" id="manageUsers">
         <div class='containerDragula' dragula='"bag"' dragula-model='usersInProject'>
-            <div ng-repeat='user in usersInProject' ng-bind='user.email'></div>
+            <div ng-repeat='user in usersInProject'>{{user.name}} {{user.lastName}} <br> {{ user.email }}</div>
         </div>
         <div class='containerDragula' dragula='"bag"' dragula-model='usersNotInProject'>
-            <div ng-repeat='user in usersNotInProject' ng-bind='user.email'></div>
+            <div ng-repeat='user in usersNotInProject'>{{user.name}} {{user.lastName}} <br> {{ user.email }}</div>
         </div>
         <button class="btn btn-success" ng-click="setUsers()">Set Users</button>
     </div>
