@@ -2,6 +2,7 @@ package com.janusze.projektzespolowy.projekt.api;
 
 import com.janusze.projektzespolowy.projekt.dto.ProjektDTO;
 import com.janusze.projektzespolowy.projekt.service.IProjektService;
+import com.janusze.projektzespolowy.util.wrappers.ProjektAndCompaniesDTO;
 import com.janusze.projektzespolowy.util.wrappers.ProjektAndUserDTO;
 import com.janusze.projektzespolowy.util.wrappers.ProjektAndUsersDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,13 @@ public class ProjektController {
     @ResponseBody
     public ResponseEntity<Void> setUsersInProjekt(@RequestBody ProjektAndUsersDTO aWrapper) {
         projektService.setUsers(aWrapper);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/setCompanies", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
+    @ResponseBody
+    public ResponseEntity<Void> setCompaniesInProjekt(@RequestBody ProjektAndCompaniesDTO aWrapper) {
+        projektService.setCompanies(aWrapper);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

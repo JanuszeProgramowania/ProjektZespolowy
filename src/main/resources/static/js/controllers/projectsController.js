@@ -1,7 +1,7 @@
 /**
  * Created by Tomasz Jodko on 2016-06-05.
  */
-app.controller('ProjectController', ['$scope', '$rootScope', 'dragulaService', 'projectFactory', 'userFactory', '$location', function ($scope, $rootScope,dragulaService, projectFactory,userFactory, $location) {
+app.controller('ProjectController', ['$scope', '$rootScope', 'dragulaService','companyFactory','projectFactory', 'userFactory', '$location', function ($scope, $rootScope,dragulaService,companyFactory, projectFactory,userFactory, $location) {
 
 
 
@@ -28,6 +28,14 @@ app.controller('ProjectController', ['$scope', '$rootScope', 'dragulaService', '
         projectFactory.setUsers(wrapper);
     };
 
+    $scope.setCompanies = function(){
+        var wrapper = {
+            projekt: $scope.selectedProject,
+            companies: $scope.companiesInProject
+        };
+        projectFactory.setCompanies(wrapper);
+    };
+
     $scope.deleteProject = function () {
         var id = $scope.selectedProject.id;
         projectFactory.deleteProject(id);
@@ -52,6 +60,15 @@ app.controller('ProjectController', ['$scope', '$rootScope', 'dragulaService', '
                     $scope.usersNotInProject = resp;
                     console.log(resp);
                 });
+                companyFactory.getCompaniesInProject(r.id, function(resp){
+                    $scope.companiesInProject = resp;
+                    console.log(resp);
+                });
+                companyFactory.getCompaniesNotInProject(r.id, function(resp){
+                    $scope.companiesNotInProject = resp;
+                    console.log(resp);
+                });
+
                 selectedCount++;
             }
         });

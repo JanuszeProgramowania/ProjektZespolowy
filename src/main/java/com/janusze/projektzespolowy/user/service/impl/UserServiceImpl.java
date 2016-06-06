@@ -124,6 +124,7 @@ public class UserServiceImpl implements IUserService{
         return null;
     }
 
+    @Override
     public List<UserDTO> findUsersByUserType(ETypUzytkownika aType){
         List<UserDTO> pResult = new ArrayList<>();
         List<UserOB> pUserList = iUserRepository.findByUserType(aType);

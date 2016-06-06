@@ -1,5 +1,6 @@
 package com.janusze.projektzespolowy.projekt.dto;
 
+import com.janusze.projektzespolowy.company.dto.CompanyDTO;
 import com.janusze.projektzespolowy.user.dto.UserDTO;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,7 @@ public class ProjektDTO implements Serializable {
     private String opis;
     private String wersja;
     private Set<UserDTO> users;
+    private Set<CompanyDTO> companies;
 
 
 }

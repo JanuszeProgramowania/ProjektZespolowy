@@ -1,0 +1,6 @@
+{
+  "name": "ng-spring-boot",
+  "dependencies": {
+    "angular-dragula": "^1.2.7"
+  }
+}

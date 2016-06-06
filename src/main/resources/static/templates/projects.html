@@ -25,6 +25,7 @@
     <button class="btn btn-success" ng-click="saveProject()">Save</button>
     <button class="btn btn-danger" ng-click="deleteProject()">Delete</button>
     <button class="btn btn-default" data-toggle="collapse" data-target="#manageUsers">Manage Users</button>
+    <button class="btn btn-default" data-toggle="collapse" data-target="#manageCompanies">Manage Companies</button>
 
     <div class="collapse" id="manageUsers">
         <div class='containerDragula' dragula='"bag"' dragula-model='usersInProject'>
@@ -35,6 +36,17 @@
         </div>
         <button class="btn btn-success" ng-click="setUsers()">Set Users</button>
     </div>
+
+    <div class="collapse" id="manageCompanies">
+        <div class='containerDragula' dragula='"bag2"' dragula-model='companiesInProject'>
+            <div ng-repeat='company in companiesInProject'>{{company.name}}</div>
+        </div>
+        <div class='containerDragula' dragula='"bag2"' dragula-model='companiesNotInProject'>
+            <div ng-repeat='company in companiesNotInProject'>{{company.name}}</div>
+        </div>
+        <button class="btn btn-success" ng-click="setCompanies()">Set Companies</button>
+    </div>
+
 
 </div>
 <div>

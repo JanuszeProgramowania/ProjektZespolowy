@@ -4,6 +4,7 @@ import com.google.gson.*;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
@@ -17,6 +18,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @ApiModel
+@EqualsAndHashCode(of = {"id"})
 public class CompanyDTO implements Serializable{
     private Long id;
     private Date dataUtworzenia;

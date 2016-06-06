@@ -1,6 +1,7 @@
 package com.janusze.projektzespolowy.projekt.service;
 
 import com.janusze.projektzespolowy.projekt.dto.ProjektDTO;
+import com.janusze.projektzespolowy.util.wrappers.ProjektAndCompaniesDTO;
 import com.janusze.projektzespolowy.util.wrappers.ProjektAndUserDTO;
 import com.janusze.projektzespolowy.util.wrappers.ProjektAndUsersDTO;
 
@@ -24,6 +25,8 @@ public interface IProjektService {
     List<ProjektDTO> findByUserId(Long aUserId);
 
     void setUsers(ProjektAndUsersDTO aWrapper);
+
+    void setCompanies(ProjektAndCompaniesDTO aWrapper);
 
     void deleteProjekt(Long aId);
 

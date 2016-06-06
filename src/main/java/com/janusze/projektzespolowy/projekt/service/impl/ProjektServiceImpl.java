@@ -1,5 +1,8 @@
 package com.janusze.projektzespolowy.projekt.service.impl;
 
+import com.janusze.projektzespolowy.company.dto.CompanyDTO;
+import com.janusze.projektzespolowy.company.ob.CompanyOB;
+import com.janusze.projektzespolowy.company.service.ICompanyService;
 import com.janusze.projektzespolowy.projekt.dto.ProjektDTO;
 import com.janusze.projektzespolowy.projekt.ob.ProjektOB;
 import com.janusze.projektzespolowy.projekt.repository.IProjektRepository;
@@ -8,8 +11,10 @@ import com.janusze.projektzespolowy.user.dto.UserDTO;
 import com.janusze.projektzespolowy.user.ob.UserOB;
 import com.janusze.projektzespolowy.user.repository.IUserRepository;
 import com.janusze.projektzespolowy.user.service.IUserService;
+import com.janusze.projektzespolowy.util.converters.impl.CompanyConverter;
 import com.janusze.projektzespolowy.util.converters.impl.ProjektConverter;
 import com.janusze.projektzespolowy.util.converters.impl.UserConverter;
+import com.janusze.projektzespolowy.util.wrappers.ProjektAndCompaniesDTO;
 import com.janusze.projektzespolowy.util.wrappers.ProjektAndUserDTO;
 import com.janusze.projektzespolowy.util.wrappers.ProjektAndUsersDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +39,13 @@ public class ProjektServiceImpl implements IProjektService {
     @Autowired
     IUserService userService;
     @Autowired
+    ICompanyService companyService;
+    @Autowired
     ProjektConverter projektConverter;
     @Autowired
     UserConverter userConverter;
+    @Autowired
+    CompanyConverter companyConverter;
 
     @Override
     public ProjektDTO findProjektById(Long aId){
@@ -106,6 +115,22 @@ public class ProjektServiceImpl implements IProjektService {
             }
         }
         pProjektOB.setUsers(pUsers);
+        iProjektRepository.save(pProjektOB);
+    }
+
+    @Override
+    public void setCompanies(ProjektAndCompaniesDTO aWrapper){
+        ProjektOB pProjektOB = iProjektRepository.findOne(aWrapper.getProjekt().getId());
+        pProjektOB.setCompanies(null);
+        Set<CompanyOB> pCompanies = new HashSet<>();
+        for (CompanyDTO company:
+                aWrapper.getCompanies()) {
+            CompanyOB pCompanyOB = companyConverter.mapDTOtoOB(companyService.findCompanyById(company.getId()));
+            if(pCompanyOB!=null){
+                pCompanies.add(pCompanyOB);
+            }
+        }
+        pProjektOB.setCompanies(pCompanies);
         iProjektRepository.save(pProjektOB);
     }
 

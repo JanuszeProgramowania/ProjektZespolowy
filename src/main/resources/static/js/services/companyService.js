@@ -30,6 +30,28 @@ app.factory('companyFactory', ['$http', function ($http) {
         });
     };
 
+    companyFactory.getCompaniesInProject= function (id, callback) {
+        return $http.get(urlBase + '/getCompaniesInProject/' + id).then(function (response) {
+            if (response.data.error) {
+                return null;
+            } else {
+                companyFactory.returnedData = response.data;
+                callback(companyFactory.returnedData);
+            }
+        });
+    };
+
+    companyFactory.getCompaniesNotInProject= function (id, callback) {
+        return $http.get(urlBase + '/getCompaniesNotInProject/' + id).then(function (response) {
+            if (response.data.error) {
+                return null;
+            } else {
+                companyFactory.returnedData = response.data;
+                callback(companyFactory.returnedData);
+            }
+        });
+    };
+
     companyFactory.saveCompany = function (wrapper, callback) {
         return $http.post(urlBase + '/saveCompany', wrapper).then(function (response) {
             if (response.data.error) {

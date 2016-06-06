@@ -45,6 +45,10 @@ app.factory('projectFactory', ['$http', function ($http) {
         return $http.put(urlBase + '/setUsers',wrapper);
     };
 
+    projectFactory.setCompanies = function (wrapper) {
+        return $http.put(urlBase + '/setCompanies',wrapper);
+    };
+
     projectFactory.deleteProject = function (id) {
         return $http.put(urlBase + '/deleteById/' + id);
     };

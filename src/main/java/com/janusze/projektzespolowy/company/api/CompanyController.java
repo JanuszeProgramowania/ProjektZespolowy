@@ -36,6 +36,16 @@ public class CompanyController {
         return new ResponseEntity<>(companyService.saveCompany(aCompanyDTO), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "getCompaniesInProject/{projektId}", method = RequestMethod.GET)
+    public ResponseEntity<List<CompanyDTO>> getUsersInProjekt(@PathVariable("projektId") Long aProjektId) {
+        return new ResponseEntity<>(companyService.findCompaniesInProjekt(aProjektId), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "getCompaniesNotInProject/{projektId}", method = RequestMethod.GET)
+    public ResponseEntity<List<CompanyDTO>> getUsersNotInProjekt(@PathVariable("projektId") Long aProjektId) {
+        return new ResponseEntity<>(companyService.findCompaniesNotInProjekt(aProjektId), HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/deleteById/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Void> deleteCompany(@PathVariable("id") Long aId) {
         companyService.deleteCompany(aId);

@@ -38,6 +38,13 @@
     transition: opacity 0.4s ease-in-out;
 }
 
+.cpLabel {
+    padding-left: 10px;
+}
+
+.horizontal-input {
+    width: 50%;
+}
 
 .btn-menu:link{
     text-decoration: none;

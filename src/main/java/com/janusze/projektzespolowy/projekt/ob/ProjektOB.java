@@ -1,6 +1,7 @@
 package com.janusze.projektzespolowy.projekt.ob;
 
 
+import com.janusze.projektzespolowy.company.ob.CompanyOB;
 import com.janusze.projektzespolowy.user.ob.UserOB;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,6 +39,8 @@ public class ProjektOB{
     private String wersja;
     @ManyToMany
     private Set<UserOB> users;
+    @ManyToMany
+    private Set<CompanyOB> companies;
 
     @PreUpdate
     private void setModDate() {

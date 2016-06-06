@@ -15,5 +15,9 @@ public interface ICompanyService {
 
     CompanyDTO saveCompany(CompanyDTO aCompanyDTO);
 
+    List<CompanyDTO> findCompaniesInProjekt(Long aProjektId);
+
+    List<CompanyDTO> findCompaniesNotInProjekt(Long aProjektId);
+
     void deleteCompany(Long aId);
 }
