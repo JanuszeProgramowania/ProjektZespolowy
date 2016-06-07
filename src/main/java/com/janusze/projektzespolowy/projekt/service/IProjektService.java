@@ -24,6 +24,8 @@ public interface IProjektService {
 
     List<ProjektDTO> findByUserId(Long aUserId);
 
+    List<ProjektDTO> findByCompanyId(Long aCompanyId);
+
     void setUsers(ProjektAndUsersDTO aWrapper);
 
     void setCompanies(ProjektAndCompaniesDTO aWrapper);

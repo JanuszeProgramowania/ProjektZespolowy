@@ -14,4 +14,7 @@ import java.util.List;
 public interface IProjektRepository extends JpaRepository<ProjektOB, Long> {
     @Query("SELECT  a FROM ProjektOB a INNER JOIN a.users u WHERE u.id = ?1 ")
     List<ProjektOB> findByUserId(Long aId);
+
+    @Query("SELECT  a FROM ProjektOB a INNER JOIN a.companies u WHERE u.id = ?1 ")
+    List<ProjektOB> findByCompanyId(Long aId);
 }

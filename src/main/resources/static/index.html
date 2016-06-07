@@ -13,6 +13,7 @@
 
     <!-- jQuery -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
 
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -26,6 +27,7 @@
     <link href="bower_components/angular-dragula/dist/dragula.css" rel="stylesheet">
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
+    <link href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css" rel="stylesheet">
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -42,14 +44,16 @@
     <script src="js/controllers/companyController.js"></script>
     <script src="js/controllers/companyUsersController.js"></script>
     <script src="js/controllers/projectsController.js"></script>
+    <script src="js/controllers/priorityController.js"></script>
     <script src="js/services/tokenStorage.js"></script>
     <script src="js/services/userService.js"></script>
     <script src="js/services/companyService.js"></script>
     <script src="js/services/projectService.js"></script>
-
+    <script src="js/services/priorityService.js"></script>
 
 
     <script src="bootstrap-validator/dist/validator.js"></script>
+    <script src="js/angular-ui-numeric.js"></script>
 </head>
 
 <body>
@@ -83,6 +87,9 @@
                 </li>
                 <li ng-show="adminWew">
                     <a href="/#/projects">Projects</a>
+                </li>
+                <li ng-show="adminWew">
+                    <a href="/#/priorities">Priorities</a>
                 </li>
             </div>
             <form role="form" ng-hide="authenticated">

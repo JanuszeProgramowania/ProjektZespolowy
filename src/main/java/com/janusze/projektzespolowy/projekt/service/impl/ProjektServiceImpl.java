@@ -70,8 +70,18 @@ public class ProjektServiceImpl implements IProjektService {
     public List<ProjektDTO> findByUserId(Long aUserId){
         List<ProjektDTO> pResult = new ArrayList<>();
         List<ProjektOB> pProjektList = iProjektRepository.findByUserId(aUserId);
-        for (ProjektOB schedule : pProjektList) {
-            pResult.add(projektConverter.mapOBtoDTO(schedule));
+        for (ProjektOB projekt : pProjektList) {
+            pResult.add(projektConverter.mapOBtoDTO(projekt));
+        }
+        return pResult;
+    }
+
+    @Override
+    public List<ProjektDTO> findByCompanyId(Long aCompanyId){
+        List<ProjektDTO> pResult = new ArrayList<>();
+        List<ProjektOB> pProjektList = iProjektRepository.findByCompanyId(aCompanyId);
+        for (ProjektOB projekt : pProjektList) {
+            pResult.add(projektConverter.mapOBtoDTO(projekt));
         }
         return pResult;
     }

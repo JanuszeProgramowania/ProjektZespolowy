@@ -1,0 +1,63 @@
+<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#newPriorityForm">New Priority</button>
+<div class="collapse" id="newPriorityForm">
+    <label for="newPriorityType">Type:</label>
+    <select class="form-control" id="newPriorityType" ng-model="newPriority.typ">
+        <option>TRIVIAL</option>
+        <option>IMPORTANT</option>
+        <option>CRITICAL</option>
+        <option>BLOCKER</option>
+    </select>
+    <label for="newPriorityTimeUnit">Time unit:</label>
+    <select class="form-control" id="newPriorityTimeUnit" ng-model="newPriority.jednostka">
+        <option>DAYS</option>
+        <option>HOURS</option>
+    </select>
+    <label for="newPriorityAmount">Amount:</label>
+    <div id="newPriorityAmount" numeric="{min:1}" step="1" ng-model="newPriority.ilosc"></div>
+    <button class="btn btn-success" ng-click="saveNewPriority()">Save</button>
+</div>
+
+<div class="collapse" id="selectedPriorityForm">
+    <label for="selectedPriorityType">Type:</label>
+    <select class="form-control" id="selectedPriorityType" ng-model="selectedPriority.typ">
+        <option>TRIVIAL</option>
+        <option>IMPORTANT</option>
+        <option>CRITICAL</option>
+        <option>BLOCKER</option>
+    </select>
+    <label for="selectedPriorityTimeUnit">Time unit:</label>
+    <select class="form-control" id="selectedPriorityTimeUnit" ng-model="selectedPriority.jednostka">
+        <option>DAYS</option>
+        <option>HOURS</option>
+    </select>
+    <label for="selectedPriorityAmount">Amount:</label>
+    <div id="selectedPriorityAmount" numeric="{min:1}" step="1" ng-model="selectedPriority.ilosc"></div>
+    <button class="btn btn-success" ng-click="savePriority()">Save</button>
+    <button class="btn btn-danger" ng-click="deletePriority()">Delete</button>
+</div>
+
+<div>
+    <table st-table="displayedCollection" st-safe-src="priorities" class="table table-striped">
+        <thead>
+        <tr>
+            <th st-sort="typ">Type</th>
+            <th st-sort="jednostka">Time unit:</th>
+            <th st-sort="ilosc">Amount:</th>
+            <th st-sort="dataUtworzenia">Created:</th>
+            <th st-sort="dataModyfikacji">Modified:</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr st-select-row="row" ng-repeat="row in displayedCollection">
+            <td>{{row.typ}}</td>
+            <td>{{row.jednostka}}</td>
+            <td>{{row.ilosc}}</td>
+            <td>{{row.dataUtworzenia | date: "dd.MM.yyyy HH:mm:ss"}}</td>
+            <td>{{row.dataModyfikacji | date: "dd.MM.yyyy HH:mm:ss"}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+
+</script>

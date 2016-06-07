@@ -40,6 +40,11 @@ public class ProjektController {
         return new ResponseEntity<>(projektService.findByUserId(aUserId), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "getByCompanyId/{companyId}", method = RequestMethod.GET)
+    public ResponseEntity<List<ProjektDTO>> findProjektyByCompanyId(@PathVariable("companyId") Long aCompanyId) {
+        return new ResponseEntity<>(projektService.findByCompanyId(aCompanyId), HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/saveProjekt", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     @ResponseBody
     public ResponseEntity<ProjektDTO> saveProjekt(@RequestBody ProjektDTO aProjektDTO) {
