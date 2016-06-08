@@ -14,8 +14,76 @@
     position: fixed;
     top:90%;
     transform: rotate(90deg);
+}
+.btn.btn-default{
+    width:100%;
+    text-align: left;
+    padding-left: 0px;
+    opacity: 1;
+    background-color: black;
+    border: transparent;
+    height: 40px;
+    border-radius: 0px;
+    color:#999999;
+}
+.btn.btn-default:hover{
+    transition: 0.5s ease;
+    background: #333333;
+    color:whitesmoke;
+}
+#login{
+    text-align: center;
+    background: #333333;
+    color:whitesmoke;
+    transition: none;
+}
+#haslo, #email{
+    width:245px;
+    margin: 0 2px;
+}
+label{
+    color:whitesmoke;
+    margin-left:5px;
+}
+.ng-scope label{
+    color: black;
+}
+li>a:hover{
+    transition: 0.5s ease;
+    background-color: #333333;
+}
+.table-striped >thead{
+    background-color: silver;
+    border-bottom: 3px solid silver;
 
 }
+.table-striped >thead >tr >th{
+    text-align: center;
+    transition: 0.5s ease;
+}
+
+.table-striped > thead > tr > th:hover{
+    transition: all 1s ease;
+    background-color: darkcyan;
+    color: white;
+    cursor: pointer;
+}
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
+    background-color: #77d5f7;
+    transition:0.5s ease;
+}
+.table-striped > tbody > tr:nth-child(even) > td, .table-striped > tbody > tr:nth-child(even) > th {
+    background-color: #b9def0;
+    transition:0.5s ease;
+}
+.table-striped > tbody > tr:hover > td{
+//transition: 0.7s ease;
+    transition: 0.7s ease-out;
+    background-color: #e6e6e6;
+    cursor: pointer;
+}
+
+
 .containerDragula:nth-child(2n+1) {
     background-color: rgba(61, 255, 0, 0.5);
 }
