@@ -11,6 +11,7 @@
         <input type="text" class="form-control" id="newProjectVersion" placeholder="Wprowadź wersę" ng-model="newProject.wersja">
 
         <button class="btn btn-success" ng-click="saveNewProject()">Save</button>
+        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#newProjectForm">Close</button>
     </div>
 </div>
 <div class="collapse" id="selectedProjectForm">
@@ -28,6 +29,7 @@
         <button class="btn btn-danger" ng-click="deleteProject()">Delete</button>
         <button class="btn btn-default" data-toggle="collapse" data-target="#manageUsers">Manage Users</button>
         <button class="btn btn-default" data-toggle="collapse" data-target="#manageCompanies">Manage Companies</button>
+        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#selectedProjectForm" ng-click="deselect()">Close</button>
 
         <div class="collapse" id="manageUsers">
             <div class='containerDragula' dragula='"bag"' dragula-model='usersInProject'>

@@ -14,6 +14,10 @@ app.controller('ProjectController', ['$scope', '$rootScope', 'dragulaService','c
         });
     };
 
+    $scope.deselect = function(){
+        $scope.selectedProject.isSelected = false;
+    };
+
     $scope.saveProject = function () {
         projectFactory.saveProject($scope.selectedProject, function (resp) {
             console.log(resp);

@@ -13,6 +13,7 @@
         <input type="text" class="form-control" id="newCompanyPhone" placeholder="Wprowadź telefon"
                ng-model="newCompany.phone">
         <button class="btn btn-success" ng-click="saveNewCompany()">Save</button>
+        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#newCompanyForm">Close</button>
     </div>
 </div>
 
@@ -31,6 +32,8 @@
                ng-model="selectedCompany.phone">
         <button class="btn btn-success" ng-click="saveCompany()">Save</button>
         <button class="btn btn-danger" ng-click="deleteCompany()">Delete</button>
+        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#selectedCompanyForm" ng-click="deselect()">Close</button>
+
     </div>
 </div>
 
@@ -41,7 +44,7 @@
             <th st-sort="name">Name</th>
             <th st-sort="address">Address:</th>
             <th st-sort="city">City:</th>
-            <th st-sort="phone">City:</th>
+            <th st-sort="phone">Phone:</th>
             <th st-sort="dataUtworzenia">Created:</th>
             <th st-sort="dataModyfikacji">Modified:</th>
         </tr>

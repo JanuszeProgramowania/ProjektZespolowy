@@ -12,6 +12,10 @@ app.controller('CompanyController', ['$scope', '$rootScope', 'companyFactory', '
         });
     };
 
+    $scope.deselect = function(){
+        $scope.selectedCompany.isSelected = false;
+    };
+
     $scope.saveCompany = function () {
         companyFactory.saveCompany($scope.selectedCompany, function (resp) {
             console.log(resp);

@@ -13,6 +13,10 @@ app.controller('PriorityController', ['$scope', '$rootScope', 'priorityFactory',
         });
     };
 
+    $scope.deselect = function(){
+        $scope.selectedPriority.isSelected = false;
+    };
+
     $scope.savePriority = function () {
         priorityFactory.savePriority($scope.selectedPriority, function (resp) {
             console.log(resp);

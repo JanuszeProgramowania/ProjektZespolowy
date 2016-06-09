@@ -18,6 +18,10 @@ app.controller('CompanyUsersController', ['$scope', '$rootScope', 'userFactory',
         });
     };
 
+
+    $scope.deselect = function(){
+        $scope.selectedUser.isSelected = false;
+    };
     $scope.saveUser = function () {
         userFactory.saveUser($scope.selectedUser, function (resp) {
             console.log(resp);

@@ -16,6 +16,7 @@
         <label for="newPriorityAmount">Amount:</label>
         <div id="newPriorityAmount" numeric="{min:1}" step="1" ng-model="newPriority.ilosc"></div>
         <button class="btn btn-success" ng-click="saveNewPriority()">Save</button>
+        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#newPriorityForm">Close</button>
     </div>
 </div>
 <div class="collapse" id="selectedPriorityForm">
@@ -36,6 +37,7 @@
         <div id="selectedPriorityAmount" numeric="{min:1}" step="1" ng-model="selectedPriority.ilosc"></div>
         <button class="btn btn-success" ng-click="savePriority()">Save</button>
         <button class="btn btn-danger" ng-click="deletePriority()">Delete</button>
+        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#selectedPriorityForm" ng-click="deselect()">Close</button>
     </div>
 </div>
 
