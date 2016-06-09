@@ -9,6 +9,14 @@ app.controller('CompanyController', ['$scope', '$rootScope', 'companyFactory', '
         companyFactory.saveCompany($scope.newCompany, function (resp) {
             console.log(resp);
             $scope.companies.push(resp);
+            $('#newCompanyName').val('');
+            $('#newCompanyAddress').val('');
+            $('#newCompanyPhone').val('');
+            $('#newCompanyCity').val('');
+            $("#success-alert").show();
+            $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+                $("#success-alert").hide();
+            });
         });
     };
 
@@ -19,6 +27,10 @@ app.controller('CompanyController', ['$scope', '$rootScope', 'companyFactory', '
     $scope.saveCompany = function () {
         companyFactory.saveCompany($scope.selectedCompany, function (resp) {
             console.log(resp);
+            $("#success-alert2").show();
+            $("#success-alert2").fadeTo(2000, 500).slideUp(500, function(){
+                $("#success-alert2").hide();
+            });
         });
     };
 

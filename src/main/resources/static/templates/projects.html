@@ -12,6 +12,9 @@
 
         <button class="btn btn-success" ng-click="saveNewProject()">Save</button>
         <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#newProjectForm">Close</button>
+        <div class="alert alert-success" id="success-alert">
+            <strong>Success!</strong> Saved project.
+        </div>
     </div>
 </div>
 <div class="collapse" id="selectedProjectForm">
@@ -30,7 +33,9 @@
         <button class="btn btn-default" data-toggle="collapse" data-target="#manageUsers">Manage Users</button>
         <button class="btn btn-default" data-toggle="collapse" data-target="#manageCompanies">Manage Companies</button>
         <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#selectedProjectForm" ng-click="deselect()">Close</button>
-
+        <div class="alert alert-success" id="success-alert2">
+            <strong>Success!</strong> Saved project.
+        </div>
         <div class="collapse" id="manageUsers">
             <div class='containerDragula' dragula='"bag"' dragula-model='usersInProject'>
                 <div ng-repeat='user in usersInProject'>{{user.name}} {{user.lastName}} <br> {{ user.email }}</div>
@@ -39,6 +44,9 @@
                 <div ng-repeat='user in usersNotInProject'>{{user.name}} {{user.lastName}} <br> {{ user.email }}</div>
             </div>
             <button class="btn btn-success" ng-click="setUsers()">Set Users</button>
+            <div class="alert alert-success" id="success-alert3">
+                <strong>Success!</strong> Users set.
+            </div>
         </div>
 
         <div class="collapse" id="manageCompanies">
@@ -49,6 +57,9 @@
                 <div ng-repeat='company in companiesNotInProject'>{{company.name}}</div>
             </div>
             <button class="btn btn-success" ng-click="setCompanies()">Set Companies</button>
+            <div class="alert alert-success" id="success-alert4">
+                <strong>Success!</strong> Companies set.
+            </div>
         </div>
     </div>
 
@@ -76,3 +87,10 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    $("#success-alert").hide();
+    $("#success-alert2").hide();
+    $("#success-alert3").hide();
+    $("#success-alert4").hide();
+</script>

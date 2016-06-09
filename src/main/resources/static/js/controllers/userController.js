@@ -33,6 +33,10 @@ app.controller('UserController', ['$scope', '$rootScope','companyFactory', 'user
     $scope.saveUser = function () {
         userFactory.saveUser($scope.selectedUser, function (resp) {
             console.log(resp);
+            $("#success-alert2").show();
+            $("#success-alert2").fadeTo(2000, 500).slideUp(500, function(){
+                $("#success-alert2").hide();
+        });
         });
     };
 

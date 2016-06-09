@@ -10,6 +10,13 @@ app.controller('PriorityController', ['$scope', '$rootScope', 'priorityFactory',
         priorityFactory.savePriority($scope.newPriority, function (resp) {
             console.log(resp);
             $scope.priorities.push(resp);
+            $('#newPriorityType').val('');
+            $('#newPriorityTimeUnit').val('');
+            $scope.newPriority.ilosc = 1;
+            $("#success-alert").show();
+            $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+                $("#success-alert").hide();
+            });
         });
     };
 
@@ -20,6 +27,10 @@ app.controller('PriorityController', ['$scope', '$rootScope', 'priorityFactory',
     $scope.savePriority = function () {
         priorityFactory.savePriority($scope.selectedPriority, function (resp) {
             console.log(resp);
+            $("#success-alert2").show();
+            $("#success-alert2").fadeTo(2000, 500).slideUp(500, function(){
+                $("#success-alert2").hide();
+            });
         });
     };
 

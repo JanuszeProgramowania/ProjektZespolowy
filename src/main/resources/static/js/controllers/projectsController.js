@@ -11,6 +11,13 @@ app.controller('ProjectController', ['$scope', '$rootScope', 'dragulaService','c
         projectFactory.saveProject($scope.newProject, function (resp) {
             console.log(resp);
             $scope.projects.push(resp);
+            $('#newProjectName').val('');
+            $('#newProjectDescription').val('');
+            $('#newProjectVersion').val('');
+            $("#success-alert").show();
+            $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+                $("#success-alert").hide();
+            });
         });
     };
 
@@ -21,6 +28,10 @@ app.controller('ProjectController', ['$scope', '$rootScope', 'dragulaService','c
     $scope.saveProject = function () {
         projectFactory.saveProject($scope.selectedProject, function (resp) {
             console.log(resp);
+            $("#success-alert2").show();
+            $("#success-alert2").fadeTo(2000, 500).slideUp(500, function(){
+                $("#success-alert2").hide();
+            });
         });
     };
 
@@ -30,6 +41,10 @@ app.controller('ProjectController', ['$scope', '$rootScope', 'dragulaService','c
             users: $scope.usersInProject
         };
         projectFactory.setUsers(wrapper);
+        $("#success-alert3").show();
+        $("#success-alert3").fadeTo(2000, 500).slideUp(500, function(){
+            $("#success-alert3").hide();
+        });
     };
 
     $scope.setCompanies = function(){
@@ -38,6 +53,10 @@ app.controller('ProjectController', ['$scope', '$rootScope', 'dragulaService','c
             companies: $scope.companiesInProject
         };
         projectFactory.setCompanies(wrapper);
+        $("#success-alert4").show();
+        $("#success-alert4").fadeTo(2000, 500).slideUp(500, function(){
+            $("#success-alert4").hide();
+        });
     };
 
     $scope.deleteProject = function () {
