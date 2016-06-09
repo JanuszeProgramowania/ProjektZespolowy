@@ -1,5 +1,6 @@
 <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#newUserForm">New User</button>
 <div class="collapse" id="newUserForm">
+    <div class="new-form">
     <label for="newUserEmail">Email:</label>
     <input type="email" class="form-control" id="newUserEmail" placeholder="Wprowadź adres email"
            ng-model="newUser.email">
@@ -30,34 +31,37 @@
         <strong>Success!</strong> Saved user.
     </div>
 </div>
+</div>
 
 <div class="collapse" id="selectedUserForm">
-    <label for="selectedUserEmail">Email:</label>
-    <input type="email" class="form-control" id="selectedUserEmail" placeholder="Wprowadź adres email"
-           ng-model="selectedUser.email">
-    <label for="selectedUserName">Name:</label>
-    <input type="text" class="form-control" id="selectedUserName" placeholder="Wprowadź imię:"
-           ng-model="selectedUser.name">
-    <label for="selectedUserLastName">Last name:</label>
-    <input type="text" class="form-control" id="selectedUserLastName" placeholder="Wprowadź nazwisko"
-           ng-model="selectedUser.lastName">
-    <label for="selectedUserAuthority">Authority:</label>
-    <select class="form-control" id="selectedUserAuthority" ng-model="selectedUser.authority">
-        <option>ROLE_USER</option>
-        <option>ROLE_ADMIN</option>
-    </select>
-    <label for="selectedUserCompany"> Company: </label>
-    <select class="form-control" id="selectedUserCompany" ng-model="selectedUser.company">
-        <option ng-repeat="company in companies" value="{{company}}">{{company.name}}</option>
-    </select>
-    <label for="selectedUserType">Type:</label>
-    <select class="form-control" id="selectedUserType" ng-model="selectedUser.typUzytkownika">
-        <option>WEWNETRZNY</option>
-        <option>ZEWNETRZNY</option>
-    </select>
+    <div class="new-form select-form">
+        <label for="selectedUserEmail">Email:</label>
+        <input type="email" class="form-control" id="selectedUserEmail" placeholder="Wprowadź adres email"
+               ng-model="selectedUser.email">
+        <label for="selectedUserName">Name:</label>
+        <input type="text" class="form-control" id="selectedUserName" placeholder="Wprowadź imię:"
+               ng-model="selectedUser.name">
+        <label for="selectedUserLastName">Last name:</label>
+        <input type="text" class="form-control" id="selectedUserLastName" placeholder="Wprowadź nazwisko"
+               ng-model="selectedUser.lastName">
+        <label for="selectedUserAuthority">Authority:</label>
+        <select class="form-control" id="selectedUserAuthority" ng-model="selectedUser.authority">
+            <option>ROLE_USER</option>
+            <option>ROLE_ADMIN</option>
+        </select>
+        <label for="selectedUserCompany"> Company: </label>
+        <select class="form-control" id="selectedUserCompany" ng-model="selectedUser.company">
+            <option ng-repeat="company in companies" value="{{company}}">{{company.name}}</option>
+        </select>
+        <label for="selectedUserType">Type:</label>
+        <select class="form-control" id="selectedUserType" ng-model="selectedUser.typUzytkownika">
+            <option>WEWNETRZNY</option>
+            <option>ZEWNETRZNY</option>
+        </select>
 
-    <button class="btn btn-success" ng-click="saveUser()">Save</button>
-    <button class="btn btn-danger" ng-click="deleteUser()">Delete</button>
+        <button class="btn btn-success" ng-click="saveUser()">Save</button>
+        <button class="btn btn-danger" ng-click="deleteUser()">Delete</button>
+    </div>
 </div>
 <div>
     <table st-table="displayedCollection" st-safe-src="users" class="table table-striped">

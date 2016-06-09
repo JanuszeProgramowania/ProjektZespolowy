@@ -1,33 +1,37 @@
 <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#newCompanyForm">New Company</button>
 <div class="collapse" id="newCompanyForm">
-    <label for="newCompanyName">Name:</label>
-    <input type="text" class="form-control" id="newCompanyName" placeholder="Wprowadź nazwę"
-           ng-model="newCompany.name">
-    <label for="newCompanyAddress">Address:</label>
-    <input type="text" class="form-control" id="newCompanyAddress" placeholder="Wprowadź adres:" ng-model="newCompany.address">
-    <label for="newCompanyCity">City:</label>
-    <input type="text" class="form-control" id="newCompanyCity" placeholder="Wprowadź miasto"
-           ng-model="newCompany.city">
-    <label for="newCompanyPhone">Phone:</label>
-    <input type="text" class="form-control" id="newCompanyPhone" placeholder="Wprowadź telefon"
-           ng-model="newCompany.phone">
-    <button class="btn btn-success" ng-click="saveNewCompany()">Save</button>
+    <div class="new-form">
+        <label for="newCompanyName">Name:</label>
+        <input type="text" class="form-control" id="newCompanyName" placeholder="Wprowadź nazwę"
+               ng-model="newCompany.name">
+        <label for="newCompanyAddress">Address:</label>
+        <input type="text" class="form-control" id="newCompanyAddress" placeholder="Wprowadź adres:" ng-model="newCompany.address">
+        <label for="newCompanyCity">City:</label>
+        <input type="text" class="form-control" id="newCompanyCity" placeholder="Wprowadź miasto"
+               ng-model="newCompany.city">
+        <label for="newCompanyPhone">Phone:</label>
+        <input type="text" class="form-control" id="newCompanyPhone" placeholder="Wprowadź telefon"
+               ng-model="newCompany.phone">
+        <button class="btn btn-success" ng-click="saveNewCompany()">Save</button>
+    </div>
 </div>
 
 <div class="collapse" id="selectedCompanyForm">
-    <label for="selectedCompanyName">Name:</label>
-    <input type="text" class="form-control" id="selectedCompanyName" placeholder="Wprowadź nazwę"
-           ng-model="selectedCompany.name">
-    <label for="selectedCompanyAddress">Address:</label>
-    <input type="text" class="form-control" id="selectedCompanyAddress" placeholder="Wprowadź adres:" ng-model="selectedCompany.address">
-    <label for="selectedCompanyCity">City:</label>
-    <input type="text" class="form-control" id="selectedCompanyCity" placeholder="Wprowadź miasto"
-           ng-model="selectedCompany.city">
-    <label for="selectedCompanyPhone">Phone:</label>
-    <input type="text" class="form-control" id="selectedCompanyPhone" placeholder="Wprowadź telefon"
-           ng-model="selectedCompany.phone">
-    <button class="btn btn-success" ng-click="saveCompany()">Save</button>
-    <button class="btn btn-danger" ng-click="deleteCompany()">Delete</button>
+    <div class="new-form select-form">
+        <label for="selectedCompanyName">Name:</label>
+        <input type="text" class="form-control" id="selectedCompanyName" placeholder="Wprowadź nazwę"
+               ng-model="selectedCompany.name">
+        <label for="selectedCompanyAddress">Address:</label>
+        <input type="text" class="form-control" id="selectedCompanyAddress" placeholder="Wprowadź adres:" ng-model="selectedCompany.address">
+        <label for="selectedCompanyCity">City:</label>
+        <input type="text" class="form-control" id="selectedCompanyCity" placeholder="Wprowadź miasto"
+               ng-model="selectedCompany.city">
+        <label for="selectedCompanyPhone">Phone:</label>
+        <input type="text" class="form-control" id="selectedCompanyPhone" placeholder="Wprowadź telefon"
+               ng-model="selectedCompany.phone">
+        <button class="btn btn-success" ng-click="saveCompany()">Save</button>
+        <button class="btn btn-danger" ng-click="deleteCompany()">Delete</button>
+    </div>
 </div>
 
 <div>

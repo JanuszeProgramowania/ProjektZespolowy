@@ -1,50 +1,53 @@
 <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#newProjectForm">New Project</button>
 <div class="collapse" id="newProjectForm">
-    <label for="newProjectName">Name:</label>
-    <input type="text" class="form-control" id="newProjectName" placeholder="Wprowadź nazwę"
-           ng-model="newProject.nazwa">
-    <label for="newProjectDescription">Description:</label>
-    <input type="text" class="form-control" id="newProjectDescription" placeholder="Wprowadź opis"
-           ng-model="newProject.opis">
-    <label for="newProjectVersion">Version:</label>
-    <input type="text" class="form-control" id="newProjectVersion" placeholder="Wprowadź wersę" ng-model="newProject.wersja">
+    <div class="new-form">
+        <label for="newProjectName">Name:</label>
+        <input type="text" class="form-control" id="newProjectName" placeholder="Wprowadź nazwę"
+               ng-model="newProject.nazwa">
+        <label for="newProjectDescription">Description:</label>
+        <input type="text" class="form-control" id="newProjectDescription" placeholder="Wprowadź opis"
+               ng-model="newProject.opis">
+        <label for="newProjectVersion">Version:</label>
+        <input type="text" class="form-control" id="newProjectVersion" placeholder="Wprowadź wersę" ng-model="newProject.wersja">
 
-    <button class="btn btn-success" ng-click="saveNewProject()">Save</button>
-</div>
-
-<div class="collapse" id="selectedProjectForm">
-    <label for="selectedProjectName">Name:</label>
-    <input type="text" class="form-control" id="selectedProjectName" placeholder="Wprowadź nazwę"
-           ng-model="selectedProject.nazwa">
-    <label for="selectedProjectDescription">Description:</label>
-    <input type="text" class="form-control" id="selectedProjectDescription" placeholder="Wprowadź opis"
-           ng-model="selectedProject.opis">
-    <label for="selectedProjectVersion">Version:</label>
-    <input type="text" class="form-control" id="selectedProjectVersion" placeholder="Wprowadź wersę" ng-model="selectedProject.wersja">
-
-    <button class="btn btn-success" ng-click="saveProject()">Save</button>
-    <button class="btn btn-danger" ng-click="deleteProject()">Delete</button>
-    <button class="btn btn-default" data-toggle="collapse" data-target="#manageUsers">Manage Users</button>
-    <button class="btn btn-default" data-toggle="collapse" data-target="#manageCompanies">Manage Companies</button>
-
-    <div class="collapse" id="manageUsers">
-        <div class='containerDragula' dragula='"bag"' dragula-model='usersInProject'>
-            <div ng-repeat='user in usersInProject'>{{user.name}} {{user.lastName}} <br> {{ user.email }}</div>
-        </div>
-        <div class='containerDragula' dragula='"bag"' dragula-model='usersNotInProject'>
-            <div ng-repeat='user in usersNotInProject'>{{user.name}} {{user.lastName}} <br> {{ user.email }}</div>
-        </div>
-        <button class="btn btn-success" ng-click="setUsers()">Set Users</button>
+        <button class="btn btn-success" ng-click="saveNewProject()">Save</button>
     </div>
+</div>
+<div class="collapse" id="selectedProjectForm">
+    <div class="new-form select-form">
+        <label for="selectedProjectName">Name:</label>
+        <input type="text" class="form-control" id="selectedProjectName" placeholder="Wprowadź nazwę"
+               ng-model="selectedProject.nazwa">
+        <label for="selectedProjectDescription">Description:</label>
+        <input type="text" class="form-control" id="selectedProjectDescription" placeholder="Wprowadź opis"
+               ng-model="selectedProject.opis">
+        <label for="selectedProjectVersion">Version:</label>
+        <input type="text" class="form-control" id="selectedProjectVersion" placeholder="Wprowadź wersę" ng-model="selectedProject.wersja">
 
-    <div class="collapse" id="manageCompanies">
-        <div class='containerDragula' dragula='"bag2"' dragula-model='companiesInProject'>
-            <div ng-repeat='company in companiesInProject'>{{company.name}}</div>
+        <button class="btn btn-success" ng-click="saveProject()">Save</button>
+        <button class="btn btn-danger" ng-click="deleteProject()">Delete</button>
+        <button class="btn btn-default" data-toggle="collapse" data-target="#manageUsers">Manage Users</button>
+        <button class="btn btn-default" data-toggle="collapse" data-target="#manageCompanies">Manage Companies</button>
+
+        <div class="collapse" id="manageUsers">
+            <div class='containerDragula' dragula='"bag"' dragula-model='usersInProject'>
+                <div ng-repeat='user in usersInProject'>{{user.name}} {{user.lastName}} <br> {{ user.email }}</div>
+            </div>
+            <div class='containerDragula' dragula='"bag"' dragula-model='usersNotInProject'>
+                <div ng-repeat='user in usersNotInProject'>{{user.name}} {{user.lastName}} <br> {{ user.email }}</div>
+            </div>
+            <button class="btn btn-success" ng-click="setUsers()">Set Users</button>
         </div>
-        <div class='containerDragula' dragula='"bag2"' dragula-model='companiesNotInProject'>
-            <div ng-repeat='company in companiesNotInProject'>{{company.name}}</div>
+
+        <div class="collapse" id="manageCompanies">
+            <div class='containerDragula' dragula='"bag2"' dragula-model='companiesInProject'>
+                <div ng-repeat='company in companiesInProject'>{{company.name}}</div>
+            </div>
+            <div class='containerDragula' dragula='"bag2"' dragula-model='companiesNotInProject'>
+                <div ng-repeat='company in companiesNotInProject'>{{company.name}}</div>
+            </div>
+            <button class="btn btn-success" ng-click="setCompanies()">Set Companies</button>
         </div>
-        <button class="btn btn-success" ng-click="setCompanies()">Set Companies</button>
     </div>
 
 
