@@ -87,6 +87,16 @@ app.factory('issueFactory', ['$http', function ($http) {
         });
     };
 
+    issueFactory.changeIssue = function (wrapper, callback) {
+        return $http.post(urlBase + '/changeZgloszenie', wrapper).then(function (response) {
+            if (response.data.error) {
+                return null;
+            } else {
+                issueFactory.returnedData = response.data;
+                callback(issueFactory.returnedData);
+            }
+        });
+    };
 
     issueFactory.deleteIssue = function (id) {
         return $http.put(urlBase + '/deleteById/' + id);

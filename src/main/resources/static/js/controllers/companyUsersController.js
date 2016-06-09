@@ -15,6 +15,14 @@ app.controller('CompanyUsersController', ['$scope', '$rootScope', 'userFactory',
         userFactory.saveUser($scope.newUser, function (resp) {
             console.log(resp);
             $scope.users.push(resp);
+            $('#newUserEmail').val('');
+            $('#newUserName').val('');
+            $('#newUserLastName').val('');
+            $('#newUserPassword').val('');
+            $("#success-alert").show();
+            $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+                $("#success-alert").hide();
+            });
         });
     };
 
@@ -25,6 +33,10 @@ app.controller('CompanyUsersController', ['$scope', '$rootScope', 'userFactory',
     $scope.saveUser = function () {
         userFactory.saveUser($scope.selectedUser, function (resp) {
             console.log(resp);
+            $("#success-alert").show();
+            $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+                $("#success-alert").hide();
+            });
         });
     };
 

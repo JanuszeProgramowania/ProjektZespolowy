@@ -51,8 +51,14 @@ app.controller('InternalIssuesController', ['$scope', '$rootScope','commentFacto
         issueFactory.saveIssue($scope.newWrapper, function (resp) {
             console.log(resp);
             $scope.issues.push(resp);
+            $('#newIssueTitle').val('');
+            $('#newIssueDescription').val('');
+            $('#newIssueForm').modal("hide");
         });
 
+    };
+    $scope.deselect = function(){
+        $scope.selectedIssue.isSelected = false;
     };
 
     $scope.saveNewComment = function () {
@@ -62,8 +68,16 @@ app.controller('InternalIssuesController', ['$scope', '$rootScope','commentFacto
         commentFactory.saveComment($scope.newCommentWrapper, function (resp) {
             console.log(resp);
             $scope.comments.push(resp);
+            $scope.newCommentWrapper.historia.opis ='';
         });
 
+    };
+
+
+    $scope.setIssueStatus = function(){
+        issueFactory.changeIssue($scope.selectedIssue, function (resp) {
+            console.log(resp);
+        });
     };
 
     priorityFactory.getPriorities(function(resp){

@@ -43,6 +43,7 @@ public class ZgloszenieOB{
     private ProjektOB projekt;
     @Column(name = "STATUS")
     private EStatusZgloszenia status;
+
     private ETypZgloszenia typZgloszenia;
     @Column(name ="ZGLOSZENIE_WEW_ZEW")
     private EZgloszenieWewZew zgloszenieWewZew;

@@ -70,6 +70,12 @@ public class ZgloszenieController {
         return new ResponseEntity<>(zgloszenieService.saveZgloszenie(aWrapper), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/changeZgloszenie", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+    @ResponseBody
+    public ResponseEntity<ZgloszenieDTO> changeZgloszenie(@RequestBody ZgloszenieDTO aWrapper) {
+        return new ResponseEntity<>(zgloszenieService.changeZgloszenie(aWrapper), HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/deleteById/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity<Void> deleteZgloszenie(@PathVariable("id") Long aId) {

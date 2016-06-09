@@ -136,7 +136,15 @@ public class ZgloszenieServiceImpl implements IZgloszenieService{
         }
         return pResult;
     }
-
+    @Override
+    public ZgloszenieDTO changeZgloszenie(ZgloszenieDTO aZgloszenieDTO){
+        ZgloszenieOB pZgloszenieOB = iZgloszenieRepository.findOne(aZgloszenieDTO.getId());
+        if(pZgloszenieOB != null){
+            pZgloszenieOB.setStatus(aZgloszenieDTO.getStatus());
+            return zgloszenieConverter.mapOBtoDTO(iZgloszenieRepository.save(pZgloszenieOB));
+        }
+        return null;
+    }
     @Override
     public List<ZgloszenieDTO> findWewByProjektId(Long aUserId) {
         List<ZgloszenieDTO> pResult = new ArrayList<>();

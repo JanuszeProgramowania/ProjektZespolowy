@@ -43,9 +43,7 @@ app.controller('IssuesController', ['$scope', '$rootScope','commentFactory','pri
         $scope.selectedPriority = resp[0];
     });
 
-    $scope.$on('emji:addSuccess', function(event, emoji, inputName) {
-        $scope[inputName] += ' ' + emoji;
-    });
+
 
     projectFactory.getProjectsByUserId($rootScope.token.id,function (resp) {
         $scope.projects = resp;
@@ -58,7 +56,7 @@ app.controller('IssuesController', ['$scope', '$rootScope','commentFactory','pri
     });
 
     $scope.setIssueStatus = function(){
-        issueFactory.saveIssue($scope.selectedIssue, function (resp) {
+        issueFactory.changeIssue($scope.selectedIssue, function (resp) {
             console.log(resp);
         });
     };

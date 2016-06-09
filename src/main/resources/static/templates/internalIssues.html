@@ -54,6 +54,7 @@
             </div>
             <div class="modal-body">
                 <div>
+                    <div class="well">
                     <label for="selectedIssueType">Type:</label>
                     <p id="selectedIssueType">{{selectedIssue.typZgloszenia}}</p>
                     <label for="selectedIssuePriority">Priority:</label>
@@ -65,24 +66,30 @@
                         <option>ODRZUCONE</option>
                         <option>ZAKONCZONE</option>
                     </select>
+                        <div class="well">
                     <label for="selectedIssueDescription">Description:</label>
                     <p id="selectedIssueDescription" ng-bind-html="selectedIssue.opis"></p>
+                            </div>
                 </div>
+                    </div>
+                <h4>Comments:</h4>
                 <div ng-repeat="comment in comments">
-                    <label>{{comment.user.name}} {{comment.user.lastName}} on {{comment.dataUtworzenia | date: "dd.MM.yyyy HH:mm:ss"}}</label>
+                    <div class="well well-sm">
+                    <label>{{comment.user.name}} {{comment.user.lastName}} from {{comment.user.company.name}} on {{comment.dataUtworzenia | date: "dd.MM.yyyy HH:mm:ss"}}</label>
                     <p ng-bind-html="comment.opis"></p>
+                        </div>
                 </div>
                 <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#addCommentForm">Add Comment</button>
 
                 <div class="collapse" id="addCommentForm">
                     <h4>New Comment for {{selectedIssue.title}} in {{selectedProject.nazwa}}</h4>
-                    <div name="newCommentDescription" id="newCommentDescription" text-angular ng-model="newCommentWrapper.historia.opis"></div>
-                    <emoji input-name="newCommentDescription"></emoji>
+                    <div id="newCommentDescription" text-angular ng-model="newCommentWrapper.historia.opis"></div>
                     <button class="btn btn-success" ng-click="saveNewComment()">Save</button>
+                    <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#addCommentForm">Close</button>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="deselect()">Close</button>
             </div>
         </div>
 

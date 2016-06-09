@@ -41,7 +41,6 @@ public class ProjektOB{
     private Set<UserOB> users;
     @ManyToMany
     private Set<CompanyOB> companies;
-
     @PreUpdate
     private void setModDate() {
         dataModyfikacji = new Date();

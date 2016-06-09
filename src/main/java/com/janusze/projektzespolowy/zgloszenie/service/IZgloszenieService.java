@@ -17,6 +17,8 @@ public interface IZgloszenieService {
 
     ZgloszenieDTO saveZgloszenie(SaveZgloszenieDTO aWrapper);
 
+    ZgloszenieDTO changeZgloszenie(ZgloszenieDTO aZgloszenieDTO);
+
     List<ZgloszenieDTO> findByUserId(Long aUserId);
 
     List<ZgloszenieDTO> findByProjektId(Long aProjektId);
