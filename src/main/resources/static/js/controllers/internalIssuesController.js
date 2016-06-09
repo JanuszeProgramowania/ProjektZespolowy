@@ -72,7 +72,7 @@ app.controller('InternalIssuesController', ['$scope', '$rootScope','commentFacto
     });
 
 
-    projectFactory.getProjects(function (resp) {
+    projectFactory.getProjectsByUserId($rootScope.token.id,function (resp) {
         $scope.projects = resp;
         $scope.selectedProject = resp[0];
         issueFactory.getInternalIssuesByProjectId($scope.selectedProject.id,function (resp) {

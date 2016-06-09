@@ -51,8 +51,7 @@
             <option>ROLE_ADMIN</option>
         </select>
         <label for="selectedUserCompany"> Company: </label>
-        <select class="form-control" id="selectedUserCompany" ng-model="selectedUser.company">
-            <option ng-repeat="company in companies" value="{{company}}">{{company.name}}</option>
+        <select id="selectedUserCompany" class="form-control" ng-model="selectedUser.company" ng-options="company.name for company in companies track by company.id">
         </select>
         <label for="selectedUserType">Type:</label>
         <select class="form-control" id="selectedUserType" ng-model="selectedUser.typUzytkownika">

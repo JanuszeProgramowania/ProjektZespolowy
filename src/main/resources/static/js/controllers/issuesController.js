@@ -47,7 +47,7 @@ app.controller('IssuesController', ['$scope', '$rootScope','commentFactory','pri
         $scope[inputName] += ' ' + emoji;
     });
 
-    projectFactory.getProjects(function (resp) {
+    projectFactory.getProjectsByUserId($rootScope.token.id,function (resp) {
         $scope.projects = resp;
         $scope.selectedProject = resp[0];
         issueFactory.getExternalIssuesByProjectId($scope.selectedProject.id,function (resp) {
