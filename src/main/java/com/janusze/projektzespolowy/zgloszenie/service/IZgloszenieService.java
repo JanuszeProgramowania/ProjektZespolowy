@@ -23,6 +23,8 @@ public interface IZgloszenieService {
 
     List<ZgloszenieDTO> findByPriorytetType(ETypPriorytetu aTypPriorytetu);
 
+    List<ZgloszenieDTO> findByUserAndProjektId(Long aUserId,Long aProjektId);
+
     void deleteZgloszenie(Long aId);
 
 }

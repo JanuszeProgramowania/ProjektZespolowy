@@ -17,4 +17,7 @@ public interface IHistoriaRepository extends JpaRepository<HistoriaOB, Long> {
 
     @Query("SELECT  a FROM HistoriaOB a WHERE  a.zgloszenie.id = ?1")
     List<HistoriaOB> findByZgloszenieId(Long aId);
+
+    @Query("SELECT  a FROM HistoriaOB a WHERE  a.zgloszenie.id = ?1 AND a.typ= 1")
+    List<HistoriaOB> findZewnetrzneByZgloszenieId(Long aId);
 }

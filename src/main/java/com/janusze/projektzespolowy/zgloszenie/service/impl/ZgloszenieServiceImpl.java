@@ -108,6 +108,16 @@ public class ZgloszenieServiceImpl implements IZgloszenieService{
     }
 
     @Override
+    public List<ZgloszenieDTO> findByUserAndProjektId(Long aUserId, Long aProjektId) {
+        List<ZgloszenieDTO> pResult = new ArrayList<>();
+        List<ZgloszenieOB> pZgloszenieList = iZgloszenieRepository.findByUserAndProjektId(aUserId, aProjektId);
+        for (ZgloszenieOB zgloszenie : pZgloszenieList) {
+            pResult.add(zgloszenieConverter.mapOBtoDTO(zgloszenie));
+        }
+        return pResult;
+    }
+
+    @Override
     public List<ZgloszenieDTO> findByProjektId(Long aUserId) {
         List<ZgloszenieDTO> pResult = new ArrayList<>();
         List<ZgloszenieOB> pZgloszenieList = iZgloszenieRepository.findByProjektId(aUserId);

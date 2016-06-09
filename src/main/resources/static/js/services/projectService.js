@@ -30,6 +30,17 @@ app.factory('projectFactory', ['$http', function ($http) {
         });
     };
 
+    projectFactory.getProjectsByCompanyId = function (id, callback) {
+        return $http.get(urlBase + '/getByCompanyId/' + id).then(function (response) {
+            if (response.data.error) {
+                return null;
+            } else {
+                projectFactory.returnedData = response.data;
+                callback(projectFactory.returnedData);
+            }
+        });
+    };
+
     projectFactory.saveProject = function (wrapper, callback) {
         return $http.post(urlBase + '/saveProjekt', wrapper).then(function (response) {
             if (response.data.error) {

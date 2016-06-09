@@ -45,13 +45,22 @@
     <script src="js/controllers/companyUsersController.js"></script>
     <script src="js/controllers/projectsController.js"></script>
     <script src="js/controllers/priorityController.js"></script>
+    <script src="js/controllers/myIssuesController.js"></script>
     <script src="js/services/tokenStorage.js"></script>
     <script src="js/services/userService.js"></script>
     <script src="js/services/companyService.js"></script>
     <script src="js/services/projectService.js"></script>
     <script src="js/services/priorityService.js"></script>
+    <script src="js/services/issueService.js"></script>
+    <script src="js/services/commentService.js"></script>
 
 
+    <link rel='stylesheet' href='bower_components/textAngular/dist/textAngular.css'>
+    <script src='bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
+    <script src='bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
+    <script src='bower_components/textAngular/dist/textAngular.min.js'></script>
+
+    <link href='bower_components/font-awesome/css/font-awesome.min.css' rel="stylesheet">
     <script src="bootstrap-validator/dist/validator.js"></script>
     <script src="js/angular-ui-numeric.js"></script>
 </head>
@@ -72,6 +81,9 @@
                     <a href="/#/home">
                         <button type="button" class="btn btn-default" ng-click="logout()">Log out</button>
                     </a>
+                </li>
+                <li ng-show="userZew">
+                    <a href="/#/myIssues">My Issues</a>
                 </li>
                 <li>
                     <a href="/#/account">Account</a>

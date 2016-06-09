@@ -42,6 +42,10 @@ public class HistoriaController {
     public ResponseEntity<List<HistoriaDTO>> findZgloszeniaByProjektId(@PathVariable("zgloszenieId") Long aZgloszenieId) {
         return new ResponseEntity<>(historiaService.findByZgloszenieId(aZgloszenieId), HttpStatus.OK);
     }
+    @RequestMapping(value = "getZewnetrzneByZgloszenieId/{zgloszenieId}", method = RequestMethod.GET)
+    public ResponseEntity<List<HistoriaDTO>> findZewnetrzneZgloszeniaByProjektId(@PathVariable("zgloszenieId") Long aZgloszenieId) {
+        return new ResponseEntity<>(historiaService.findZewnetrzneByZgloszenieId(aZgloszenieId), HttpStatus.OK);
+    }
 
     @RequestMapping(value = "/saveHistoria", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     @ResponseBody

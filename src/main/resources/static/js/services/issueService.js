@@ -4,68 +4,57 @@
 app.factory('issueFactory', ['$http', function ($http) {
 
     var urlBase = '/projektzespolowy/zgloszenia';
-    var companyFactory = {};
+    var issueFactory = {};
 
 
-    companyFactory.getCompanies = function (callback) {
+    issueFactory.getIssues = function (callback) {
         return $http.get(urlBase + '/getAll').then(function (response) {
             if (response.data.error) {
                 return null;
             } else {
-                companyFactory.returnedData = response.data;
-                callback(companyFactory.returnedData);
+                issueFactory.returnedData = response.data;
+                callback(issueFactory.returnedData);
             }
         });
     };
 
 
-    companyFactory.getCompany = function (id, callback) {
+    issueFactory.getIssue = function (id, callback) {
         return $http.get(urlBase + '/getById/' + id).then(function (response) {
             if (response.data.error) {
                 return null;
             } else {
-                companyFactory.returnedData = response.data;
-                callback(companyFactory.returnedData);
+                issueFactory.returnedData = response.data;
+                callback(issueFactory.returnedData);
             }
         });
     };
 
-    companyFactory.getCompaniesInProject= function (id, callback) {
-        return $http.get(urlBase + '/getCompaniesInProject/' + id).then(function (response) {
+    issueFactory.getIssuesByUserAndProjektId = function (userId,projektId, callback) {
+        return $http.get(urlBase + '/getByUserAndProjektId/' + userId +','+projektId).then(function (response) {
             if (response.data.error) {
                 return null;
             } else {
-                companyFactory.returnedData = response.data;
-                callback(companyFactory.returnedData);
+                issueFactory.returnedData = response.data;
+                callback(issueFactory.returnedData);
             }
         });
     };
 
-    companyFactory.getCompaniesNotInProject= function (id, callback) {
-        return $http.get(urlBase + '/getCompaniesNotInProject/' + id).then(function (response) {
+    issueFactory.saveIssue = function (wrapper, callback) {
+        return $http.post(urlBase + '/saveZgloszenie', wrapper).then(function (response) {
             if (response.data.error) {
                 return null;
             } else {
-                companyFactory.returnedData = response.data;
-                callback(companyFactory.returnedData);
-            }
-        });
-    };
-
-    companyFactory.saveCompany = function (wrapper, callback) {
-        return $http.post(urlBase + '/saveCompany', wrapper).then(function (response) {
-            if (response.data.error) {
-                return null;
-            } else {
-                companyFactory.returnedData = response.data;
-                callback(companyFactory.returnedData);
+                issueFactory.returnedData = response.data;
+                callback(issueFactory.returnedData);
             }
         });
     };
 
 
-    companyFactory.deleteCompany = function (id) {
+    issueFactory.deleteIssue = function (id) {
         return $http.put(urlBase + '/deleteById/' + id);
     };
-    return companyFactory;
+    return issueFactory;
 }]);

@@ -71,7 +71,7 @@ public class HistoriaServiceImpl implements IHistoriaService{
         if (pZgloszenieDTO == null || pUserDTO == null || pHistoriaDTO == null) {
             return null;
         }
-        HistoriaOB pHistoriaOB = iHistoriaRepository.findOne(pZgloszenieDTO.getId());
+        HistoriaOB pHistoriaOB = iHistoriaRepository.findOne(pHistoriaDTO.getId());
         if (pHistoriaOB == null) {
             UserOB pUserOB = userConverter.mapDTOtoOB(userService.findUserById(pUserDTO.getId()));
             ZgloszenieOB pZgloszenieOB = zgloszenieConverter.mapDTOtoOB(zgloszenieService.findZgloszenieById(pZgloszenieDTO.getId()));
@@ -99,6 +99,16 @@ public class HistoriaServiceImpl implements IHistoriaService{
     public List<HistoriaDTO> findByZgloszenieId(Long aUserId) {
         List<HistoriaDTO> pResult = new ArrayList<>();
         List<HistoriaOB> pHistoriaList = iHistoriaRepository.findByZgloszenieId(aUserId);
+        for (HistoriaOB historia : pHistoriaList) {
+            pResult.add(historiaConverter.mapOBtoDTO(historia));
+        }
+        return pResult;
+    }
+
+    @Override
+    public List<HistoriaDTO> findZewnetrzneByZgloszenieId(Long aUserId) {
+        List<HistoriaDTO> pResult = new ArrayList<>();
+        List<HistoriaOB> pHistoriaList = iHistoriaRepository.findZewnetrzneByZgloszenieId(aUserId);
         for (HistoriaOB historia : pHistoriaList) {
             pResult.add(historiaConverter.mapOBtoDTO(historia));
         }

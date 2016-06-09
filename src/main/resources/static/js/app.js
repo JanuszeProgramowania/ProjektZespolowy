@@ -1,7 +1,7 @@
 /**
  * Created by Tomasz Jodko on 2016-06-01.
  */
-var app = angular.module('app', [ angularDragula(angular) ,'ngRoute','ui.numeric', 'smart-table', 'ui.bootstrap']);
+var app = angular.module('app', [ angularDragula(angular) ,'textAngular','ngRoute','ui.numeric', 'smart-table', 'ui.bootstrap']);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
@@ -34,6 +34,10 @@ app.config(['$routeProvider', function ($routeProvider) {
         .when('/priorities', {
             templateUrl: 'templates/priorities.html',
             controller: 'PriorityController'
+        })
+        .when('/myIssues', {
+            templateUrl: 'templates/myIssues.html',
+            controller: 'MyIssuesController'
         })
         .otherwise({redirectTo: '/'});
 }]);

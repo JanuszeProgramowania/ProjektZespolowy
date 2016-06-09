@@ -25,6 +25,7 @@ public class ZgloszenieDTO implements Serializable {
     private Long id;
     private Date dataUtworzenia;
     private Date dataModyfikacji;
+    private String title;
     private String opis;
     private PriorytetDTO priorytet;
     private ProjektDTO projekt;

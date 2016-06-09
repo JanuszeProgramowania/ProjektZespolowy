@@ -5,6 +5,9 @@ app.controller('AuthCtrl', function ($scope, $rootScope, $http, TokenStorage) {
     $rootScope.authenticated = false;
     $rootScope.adminWew = false;
     $rootScope.adminZew = false;
+    $rootScope.userWew = false;
+    $rootScope.userZew = false;
+
     $rootScope.token; // For display purposes only
 
     $scope.init = function () {
@@ -12,6 +15,8 @@ app.controller('AuthCtrl', function ($scope, $rootScope, $http, TokenStorage) {
             $rootScope.authenticated = false;
             $rootScope.adminWew = false;
             $rootScope.adminZew = false;
+            $rootScope.userWew = false;
+            $rootScope.userZew = false;
             if (typeof TokenStorage.retrieve() !== 'undefined' && TokenStorage.retrieve() !== null) {
                 $rootScope.authenticated = true;
 
@@ -21,6 +26,10 @@ app.controller('AuthCtrl', function ($scope, $rootScope, $http, TokenStorage) {
                     $rootScope.adminWew = true;
                 } else if ($rootScope.token.authority === "ROLE_ADMIN" && $rootScope.token.typUzytkownika === "ZEWNETRZNY"){
                     $rootScope.adminZew = true;
+                } else if ($rootScope.token.authority === "ROLE_USER" && $rootScope.token.typUzytkownika === "WEWNETRZNY"){
+                    $rootScope.userWew = true;
+                } else if ($rootScope.token.authority === "ROLE_USER" && $rootScope.token.typUzytkownika === "ZEWNETRZNY"){
+                    $rootScope.userZew = true;
                 }
             }
         });
@@ -42,6 +51,10 @@ app.controller('AuthCtrl', function ($scope, $rootScope, $http, TokenStorage) {
                 $rootScope.adminWew = true;
             } else if ($rootScope.token.authority === "ROLE_ADMIN" && $rootScope.token.typUzytkownika === "ZEWNETRZNY"){
                 $rootScope.adminZew = true;
+            } else if ($rootScope.token.authority === "ROLE_USER" && $rootScope.token.typUzytkownika === "WEWNETRZNY"){
+                $rootScope.userWew = true;
+            } else if ($rootScope.token.authority === "ROLE_USER" && $rootScope.token.typUzytkownika === "ZEWNETRZNY"){
+                $rootScope.userZew = true;
             }
 
         });
@@ -53,5 +66,7 @@ app.controller('AuthCtrl', function ($scope, $rootScope, $http, TokenStorage) {
         $rootScope.authenticated = false;
         $rootScope.adminWew = false;
         $rootScope.adminZew = false;
+        $rootScope.userWew = false;
+        $rootScope.userZew = false;
     };
 });

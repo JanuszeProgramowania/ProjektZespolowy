@@ -39,6 +39,11 @@ public class ZgloszenieController {
         return new ResponseEntity<>(zgloszenieService.findByUserId(aUserId), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "getByUserAndProjektId/{userId},{projektId}", method = RequestMethod.GET)
+    public ResponseEntity<List<ZgloszenieDTO>> findZgloszeniaByUserAndProjektId(@PathVariable("userId") Long aUserId,@PathVariable("projektId") Long aProjektId) {
+        return new ResponseEntity<>(zgloszenieService.findByUserAndProjektId(aUserId,aProjektId), HttpStatus.OK);
+    }
+
     @RequestMapping(value = "getByProjektId/{projektId}", method = RequestMethod.GET)
     public ResponseEntity<List<ZgloszenieDTO>> findZgloszeniaByProjektId(@PathVariable("projektId") Long aProjektId) {
         return new ResponseEntity<>(zgloszenieService.findByProjektId(aProjektId), HttpStatus.OK);

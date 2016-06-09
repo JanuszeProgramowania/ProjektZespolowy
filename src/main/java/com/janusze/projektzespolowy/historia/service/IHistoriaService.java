@@ -19,5 +19,7 @@ public interface IHistoriaService {
 
     List<HistoriaDTO> findByZgloszenieId(Long aZgloszenieId);
 
+    List<HistoriaDTO> findZewnetrzneByZgloszenieId(Long aZgloszenieId);
+
     void deleteHistoria(Long aId);
 }

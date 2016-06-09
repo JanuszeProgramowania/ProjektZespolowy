@@ -33,6 +33,8 @@ public class ZgloszenieOB{
     @Column(name = "DATA_MODYFIKACJI", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date dataModyfikacji;
+    @Column(name = "TITLE")
+    private String title;
     @Column(name = "OPIS")
     private String opis;
     @ManyToOne
