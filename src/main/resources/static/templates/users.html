@@ -27,6 +27,7 @@
         <option>ZEWNETRZNY</option>
     </select>
     <button class="btn btn-success" ng-click="saveNewUser()">Save</button>
+        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#newUserForm">Close</button>
     <div class="alert alert-success" id="success-alert">
         <strong>Success!</strong> Saved user.
     </div>
@@ -61,6 +62,7 @@
 
         <button class="btn btn-success" ng-click="saveUser()">Save</button>
         <button class="btn btn-danger" ng-click="deleteUser()">Delete</button>
+        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#selectedUserForm" ng-click="deselect()">Close</button>
     </div>
 </div>
 <div>

@@ -1,0 +1,117 @@
+<label> Project: </label>
+<select class="form-control" ng-model="selectedProject" ng-options="project.nazwa for project in projects track by project.id" ng-change="selectedProjectChanged()">
+</select>
+
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newIssueForm">New Issue</button>
+<!-- Modal -->
+<div class="modal fade" id="newIssueForm" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">New Issue for {{selectedProject.nazwa}}</h4>
+            </div>
+            <div class="modal-body">
+                <label for="newIssueTitle">Title:</label>
+                <input type="text" class="form-control" id="newIssueTitle" placeholder="Wprowadź tytuł:"
+                       ng-model="newWrapper.zgloszenie.title">
+                <label for="newIssueType">Type:</label>
+                <select class="form-control" id="newIssueType" ng-model="newWrapper.zgloszenie.typZgloszenia">
+                    <option>BLAD</option>
+                    <option>SUGESTIA</option>
+                    <option>INNE</option>
+                </select>
+
+
+                <label for="newIssuePriority">Priority</label>
+                <select id="newIssuePriority" class="form-control" ng-model="selectedPriority" ng-options="priority.typ for priority in priorities track by priority.id">
+                </select>
+                <p>Reaction time: {{selectedPriority.ilosc}} {{selectedPriority.jednostka}}</p>
+
+                <label for="newIssueDescription">Description:</label>
+                <div id="newIssueDescription"text-angular ng-model="newWrapper.zgloszenie.opis"></div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" ng-click="saveNewIssue()">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="selectedIssueForm" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{selectedIssue.title}} in {{selectedIssue.projekt.nazwa}}</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <label for="selectedIssueType">Type:</label>
+                    <p id="selectedIssueType">{{selectedIssue.typZgloszenia}}</p>
+                    <label for="selectedIssuePriority">Priority:</label>
+                    <p id="selectedIssuePriority">{{selectedIssue.priorytet.typ}}</p>
+                    <label for="selectedIssueStatus">Status:</label>
+                    <select class="form-control" id="selectedIssueStatus" ng-model="selectedIssue.status" ng-change="setIssueStatus()">
+                        <option>OCZEKUJE</option>
+                        <option>PRZYJETE</option>
+                        <option>ODRZUCONE</option>
+                        <option>ZAKONCZONE</option>
+                    </select>
+                    <label for="selectedIssueDescription">Description:</label>
+                    <p id="selectedIssueDescription" ng-bind-html="selectedIssue.opis"></p>
+                </div>
+                <div ng-repeat="comment in comments">
+                    <label>{{comment.user.name}} {{comment.user.lastName}} on {{comment.dataUtworzenia | date: "dd.MM.yyyy HH:mm:ss"}}</label>
+                    <p ng-bind-html="comment.opis"></p>
+                </div>
+                <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#addCommentForm">Add Comment</button>
+
+                <div class="collapse" id="addCommentForm">
+                    <h4>New Comment for {{selectedIssue.title}} in {{selectedProject.nazwa}}</h4>
+                    <div name="newCommentDescription" id="newCommentDescription" text-angular ng-model="newCommentWrapper.historia.opis"></div>
+                    <emoji input-name="newCommentDescription"></emoji>
+                    <button class="btn btn-success" ng-click="saveNewComment()">Save</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div>
+    <label for="issues">Issues for {{selectedProject.nazwa}}</label>
+    <table id="issues" st-table="displayedCollection" st-safe-src="issues" class="table table-striped">
+        <thead>
+        <tr>
+            <th st-sort="title">Title</th>
+            <th st-sort="priorytet.typ">Priority</th>
+            <th st-sort="typZgloszenia">Type</th>
+            <th st-sort="status">Status</th>
+            <th st-sort="dataUtworzenia">Created:</th>
+            <th st-sort="dataModyfikacji">Modified:</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr st-select-row="row" ng-repeat="row in displayedCollection">
+            <td>{{row.title}}</td>
+            <td>{{row.priorytet.typ}}</td>
+            <td>{{row.typZgloszenia}}</td>
+            <td>{{row.status}}</td>
+            <td>{{row.dataUtworzenia | date: "dd.MM.yyyy HH:mm:ss"}}</td>
+            <td>{{row.dataModyfikacji | date: "dd.MM.yyyy HH:mm:ss"}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

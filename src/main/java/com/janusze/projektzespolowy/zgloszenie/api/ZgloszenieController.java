@@ -49,6 +49,16 @@ public class ZgloszenieController {
         return new ResponseEntity<>(zgloszenieService.findByProjektId(aProjektId), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "getInternalByProjektId/{projektId}", method = RequestMethod.GET)
+    public ResponseEntity<List<ZgloszenieDTO>> findWewZgloszeniaByProjektId(@PathVariable("projektId") Long aProjektId) {
+        return new ResponseEntity<>(zgloszenieService.findWewByProjektId(aProjektId), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "getExternalByProjektId/{projektId}", method = RequestMethod.GET)
+    public ResponseEntity<List<ZgloszenieDTO>> findZewZgloszeniaByProjektId(@PathVariable("projektId") Long aProjektId) {
+        return new ResponseEntity<>(zgloszenieService.findZewByProjektId(aProjektId), HttpStatus.OK);
+    }
+
     @RequestMapping(value = "getByPriorytetType/{priorytetType}", method = RequestMethod.GET)
     public ResponseEntity<List<ZgloszenieDTO>> findZgloszeniaByPriorytetType(@PathVariable("priorytetType")ETypPriorytetu aPriorytetType) {
         return new ResponseEntity<>(zgloszenieService.findByPriorytetType(aPriorytetType), HttpStatus.OK);

@@ -26,6 +26,10 @@ app.controller('UserController', ['$scope', '$rootScope','companyFactory', 'user
         });
     };
 
+    $scope.deselect = function(){
+      $scope.selectedUser.isSelected = false;
+    };
+
     $scope.saveUser = function () {
         userFactory.saveUser($scope.selectedUser, function (resp) {
             console.log(resp);

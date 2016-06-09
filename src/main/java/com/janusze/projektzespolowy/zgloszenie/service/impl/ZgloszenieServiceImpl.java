@@ -128,6 +128,26 @@ public class ZgloszenieServiceImpl implements IZgloszenieService{
     }
 
     @Override
+    public List<ZgloszenieDTO> findZewByProjektId(Long aUserId) {
+        List<ZgloszenieDTO> pResult = new ArrayList<>();
+        List<ZgloszenieOB> pZgloszenieList = iZgloszenieRepository.findZewByProjektId(aUserId);
+        for (ZgloszenieOB zgloszenie : pZgloszenieList) {
+            pResult.add(zgloszenieConverter.mapOBtoDTO(zgloszenie));
+        }
+        return pResult;
+    }
+
+    @Override
+    public List<ZgloszenieDTO> findWewByProjektId(Long aUserId) {
+        List<ZgloszenieDTO> pResult = new ArrayList<>();
+        List<ZgloszenieOB> pZgloszenieList = iZgloszenieRepository.findWewByProjektId(aUserId);
+        for (ZgloszenieOB zgloszenie : pZgloszenieList) {
+            pResult.add(zgloszenieConverter.mapOBtoDTO(zgloszenie));
+        }
+        return pResult;
+    }
+
+    @Override
     public List<ZgloszenieDTO> findByPriorytetType(ETypPriorytetu aTypPriorytetu) {
         List<ZgloszenieDTO> pResult = new ArrayList<>();
         List<ZgloszenieOB> pZgloszenieList = iZgloszenieRepository.findByPriorytetType(aTypPriorytetu);

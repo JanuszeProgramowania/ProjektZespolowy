@@ -24,8 +24,10 @@ app.controller('AuthCtrl', function ($scope, $rootScope, $http, TokenStorage) {
                 $rootScope.token = JSON.parse(atob(TokenStorage.retrieve().split('.')[0]));
                 if ($rootScope.token.authority === "ROLE_ADMIN" && $rootScope.token.typUzytkownika === "WEWNETRZNY") {
                     $rootScope.adminWew = true;
+                    $rootScope.userWew = true;
                 } else if ($rootScope.token.authority === "ROLE_ADMIN" && $rootScope.token.typUzytkownika === "ZEWNETRZNY"){
                     $rootScope.adminZew = true;
+                    $rootScope.userZew = true;
                 } else if ($rootScope.token.authority === "ROLE_USER" && $rootScope.token.typUzytkownika === "WEWNETRZNY"){
                     $rootScope.userWew = true;
                 } else if ($rootScope.token.authority === "ROLE_USER" && $rootScope.token.typUzytkownika === "ZEWNETRZNY"){
@@ -43,14 +45,18 @@ app.controller('AuthCtrl', function ($scope, $rootScope, $http, TokenStorage) {
             $rootScope.authenticated = true;
             $rootScope.adminWew = false;
             $rootScope.adminZew = false;
+            $rootScope.userWew = false;
+            $rootScope.userZew = false;
             TokenStorage.store(headers('X-AUTH-TOKEN'));
 
             // For display purposes only
             $rootScope.token = JSON.parse(atob(TokenStorage.retrieve().split('.')[0]));
             if ($rootScope.token.authority === "ROLE_ADMIN" && $rootScope.token.typUzytkownika === "WEWNETRZNY") {
                 $rootScope.adminWew = true;
+                $rootScope.userWew = true;
             } else if ($rootScope.token.authority === "ROLE_ADMIN" && $rootScope.token.typUzytkownika === "ZEWNETRZNY"){
                 $rootScope.adminZew = true;
+                $rootScope.userZew = true;
             } else if ($rootScope.token.authority === "ROLE_USER" && $rootScope.token.typUzytkownika === "WEWNETRZNY"){
                 $rootScope.userWew = true;
             } else if ($rootScope.token.authority === "ROLE_USER" && $rootScope.token.typUzytkownika === "ZEWNETRZNY"){

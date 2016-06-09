@@ -19,6 +19,12 @@ public interface IZgloszenieRepository extends JpaRepository<ZgloszenieOB, Long>
     @Query("SELECT  a FROM ZgloszenieOB a WHERE  a.projekt.id = ?1")
     List<ZgloszenieOB> findByProjektId(Long aId);
 
+    @Query("SELECT  a FROM ZgloszenieOB a WHERE  a.projekt.id = ?1 AND a.zgloszenieWewZew = 1")
+    List<ZgloszenieOB> findZewByProjektId(Long aId);
+
+    @Query("SELECT  a FROM ZgloszenieOB a WHERE  a.projekt.id = ?1 AND a.zgloszenieWewZew = 0")
+    List<ZgloszenieOB> findWewByProjektId(Long aId);
+
     @Query("SELECT  a FROM ZgloszenieOB a WHERE  a.user.id = ?1 AND a.projekt.id = ?2")
     List<ZgloszenieOB> findByUserAndProjektId(Long aUserId,Long aProjektId);
 

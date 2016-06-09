@@ -30,6 +30,41 @@ app.factory('issueFactory', ['$http', function ($http) {
         });
     };
 
+    issueFactory.getIssuesByProjectId = function (id, callback) {
+        return $http.get(urlBase + '/getByProjektId/' + id).then(function (response) {
+            if (response.data.error) {
+                return null;
+            } else {
+                issueFactory.returnedData = response.data;
+                callback(issueFactory.returnedData);
+            }
+        });
+    };
+
+    issueFactory.getExternalIssuesByProjectId = function (id, callback) {
+        return $http.get(urlBase + '/getExternalByProjektId/' + id).then(function (response) {
+            if (response.data.error) {
+                return null;
+            } else {
+                issueFactory.returnedData = response.data;
+                callback(issueFactory.returnedData);
+            }
+        });
+    };
+
+
+    issueFactory.getInternalIssuesByProjectId = function (id, callback) {
+        return $http.get(urlBase + '/getInternalByProjektId/' + id).then(function (response) {
+            if (response.data.error) {
+                return null;
+            } else {
+                issueFactory.returnedData = response.data;
+                callback(issueFactory.returnedData);
+            }
+        });
+    };
+
+
     issueFactory.getIssuesByUserAndProjektId = function (userId,projektId, callback) {
         return $http.get(urlBase + '/getByUserAndProjektId/' + userId +','+projektId).then(function (response) {
             if (response.data.error) {

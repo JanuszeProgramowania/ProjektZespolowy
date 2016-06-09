@@ -39,5 +39,13 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'templates/myIssues.html',
             controller: 'MyIssuesController'
         })
+        .when('/issues', {
+            templateUrl: 'templates/issues.html',
+            controller: 'IssuesController'
+        })
+        .when('/internalIssues', {
+            templateUrl: 'templates/InternalIssues.html',
+            controller: 'InternalIssuesController'
+        })
         .otherwise({redirectTo: '/'});
 }]);

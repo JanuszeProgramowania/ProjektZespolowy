@@ -46,6 +46,8 @@
     <script src="js/controllers/projectsController.js"></script>
     <script src="js/controllers/priorityController.js"></script>
     <script src="js/controllers/myIssuesController.js"></script>
+    <script src="js/controllers/issuesController.js"></script>
+    <script src="js/controllers/internalIssuesController.js"></script>
     <script src="js/services/tokenStorage.js"></script>
     <script src="js/services/userService.js"></script>
     <script src="js/services/companyService.js"></script>
@@ -84,6 +86,12 @@
                 </li>
                 <li ng-show="userZew">
                     <a href="/#/myIssues">My Issues</a>
+                </li>
+                <li ng-show="userWew">
+                    <a href="/#/issues">External Issues</a>
+                </li>
+                <li ng-show="userWew">
+                    <a href="/#/internalIssues">Internal Issues</a>
                 </li>
                 <li>
                     <a href="/#/account">Account</a>

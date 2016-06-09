@@ -21,6 +21,10 @@ public interface IZgloszenieService {
 
     List<ZgloszenieDTO> findByProjektId(Long aProjektId);
 
+    List<ZgloszenieDTO> findZewByProjektId(Long aProjektId);
+
+    List<ZgloszenieDTO> findWewByProjektId(Long aProjektId);
+
     List<ZgloszenieDTO> findByPriorytetType(ETypPriorytetu aTypPriorytetu);
 
     List<ZgloszenieDTO> findByUserAndProjektId(Long aUserId,Long aProjektId);
