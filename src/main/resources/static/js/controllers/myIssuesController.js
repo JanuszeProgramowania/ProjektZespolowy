@@ -62,6 +62,7 @@ app.controller('MyIssuesController', ['$scope', '$rootScope','commentFactory','p
         commentFactory.saveComment($scope.newCommentWrapper, function (resp) {
             console.log(resp);
             $scope.comments.push(resp);
+            $scope.newCommentWrapper.historia.opis ='';
         });
 
     };
