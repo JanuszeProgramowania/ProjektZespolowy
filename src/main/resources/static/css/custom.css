@@ -15,7 +15,7 @@
     top:90%;
     transform: rotate(90deg);
 }
-.btn.btn-default{
+.btn-custom{
     width:100%;
     text-align: left;
     padding-left: 0px;
@@ -26,7 +26,7 @@
     border-radius: 0px;
     color:#999999;
 }
-.btn.btn-default:hover{
+.btn-custom:hover{
     transition: 0.5s ease;
     background: #333333;
     color:whitesmoke;
