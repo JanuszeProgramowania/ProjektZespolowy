@@ -63,7 +63,7 @@
                     <label for="selectedIssueStatus">Status:</label>
                     <p id="selectedIssueStatus">{{selectedIssue.status}}</p>
                         <div class="well">
-                    <label for="selectedIssueDescription">Description:</label>
+                    <label for="selectedIssueDescription">{{selectedIssue.user.name}} {{selectedIssue.user.lastName}} from {{selectedIssue.user.company.name}} on {{selectedIssue.dataUtworzenia | date: "dd.MM.yyyy HH:mm:ss"}}</label>
                     <p id="selectedIssueDescription" ng-bind-html="selectedIssue.opis"></p>
                             </div>
                         </div>
