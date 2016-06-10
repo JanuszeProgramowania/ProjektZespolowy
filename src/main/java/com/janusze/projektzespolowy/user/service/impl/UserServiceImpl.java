@@ -97,7 +97,9 @@ public class UserServiceImpl implements IUserService{
         if (pUserOB == null) {
             pUserOB = userConverter.mapDTOtoOB(aUserDTO);
             pUserOB.setPassword(new BCryptPasswordEncoder().encode(aUserDTO.getPassword()));
-            pUserOB.setCompany(companyConverter.mapDTOtoOB(companyService.findCompanyById(aUserDTO.getCompany().getId())));
+            if(aUserDTO.getCompany() != null) {
+                pUserOB.setCompany(companyConverter.mapDTOtoOB(companyService.findCompanyById(aUserDTO.getCompany().getId())));
+            }
             return userConverter.mapOBtoDTO(iUserRepository.save(pUserOB));
         }
         // edycja istniejacego
